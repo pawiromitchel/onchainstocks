@@ -46,7 +46,7 @@ Three workflows live in `.github/workflows/`:
 
 One-time setup: repo **Settings → Pages → Source: Deploy from a branch → `gh-pages` / root** (the branch appears after the first deploy run). Also make sure **Settings → Actions → General → Workflow permissions** allows read and write.
 
-The build uses a relative base path and hash routing, so it works at `https://pawiromitchel.com/onchainstocks/` (the account's Pages domain) or on any other path without changes. If you protect `main`, allow the Actions bot to push, or the sync commit will fail. Consider making the `test` check required before merging.
+The build uses a relative base path and hash routing, so it works at `https://onchainstocks.pawiromitchel.com/` (custom domain, set by the `cname` input in `deploy.yml`) or on any other path, such as `https://pawiromitchel.github.io/onchainstocks/`, without changes. DNS: a `CNAME` record `onchainstocks` -> `pawiromitchel.github.io` (Cloudflare proxy off until GitHub issues the certificate). If you protect `main`, allow the Actions bot to push, or the sync commit will fail. Consider making the `test` check required before merging.
 
 ## How it works
 

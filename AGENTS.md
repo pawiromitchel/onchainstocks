@@ -9,7 +9,7 @@ A static, read-only portfolio viewer for **Coinbase tokenized stocks on Base**. 
 
 - **Scope is strict:** Coinbase-issued stock tokens, on Base only. Other assets, issuers and chains are never shown. Say so in copy wherever scope matters.
 - **No backend, no database.** Everything is read from Base (RPC) and DexScreener (prices) in the browser.
-- **Live at** `https://pawiromitchel.com/onchainstocks/` (GitHub Pages, project page). Author: Mitchel, https://pawiromitchel.com/
+- **Live at** `https://onchainstocks.pawiromitchel.com/` (GitHub Pages custom domain; DNS `CNAME onchainstocks -> pawiromitchel.github.io`; the `cname` input in `deploy.yml` writes the CNAME file on `gh-pages`). Author: Mitchel, https://pawiromitchel.com/
 - The app never asks for signatures or approvals. Swaps happen on the exchange's own site.
 
 ## Commands
