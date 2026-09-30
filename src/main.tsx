@@ -4,10 +4,13 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { WagmiProvider } from 'wagmi'
 import App from './App'
+import { quotesQuery } from './hooks/useQuotes'
 import './index.css'
 import { config } from './wagmi'
 
 const queryClient = new QueryClient()
+// Every screen shows prices, so start fetching them before the first render.
+void queryClient.prefetchQuery(quotesQuery)
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

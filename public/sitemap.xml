@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Pages below the home page are hash routes (#/stocks, ...), which search engines treat as the same URL. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://onchainstocks.pawiromitchel.com/</loc></url>
+</urlset>

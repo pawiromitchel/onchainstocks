@@ -15,6 +15,3 @@ export const VENUES: Venue[] = [
 ]
 
 export const primaryVenue = VENUES[0]
-
-// Generic entry point for "buy a stock" when no specific stock is chosen yet.
-export const swapHome = 'https://aerodrome.finance/swap'
