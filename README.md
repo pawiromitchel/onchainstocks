@@ -1,6 +1,6 @@
 # onchainstocks
 
-Crypto Stonks: a stock-only portfolio viewer for [Coinbase tokenized stocks on Base](https://www.base.org/stocks).
+Onchain Stocks: a stock-only portfolio viewer for [Coinbase tokenized stocks on Base](https://www.base.org/stocks).
 
 - Connect MetaMask, Rabby or any other EVM wallet and see your balances of every Coinbase-issued stock token on Base (40 at the time of writing).
 - Buy or swap links per stock (Aerodrome first, plus Uniswap, Matcha, 1inch and CoW Swap).

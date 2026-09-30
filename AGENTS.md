@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Guidance for AI coding agents (Antigravity, Claude Code, Codex, Cursor, etc.) working on **Crypto Stonks** (repo: `onchainstocks`).
+Guidance for AI coding agents (Antigravity, Claude Code, Codex, Cursor, etc.) working on **Onchain Stocks** (repo: `onchainstocks`).
 Read this first. Keep it current when you change behavior, design tokens or workflows.
 
 ## What this is
@@ -169,7 +169,6 @@ Build output is relative (`base: './'`) with hash routing, so it works at any pa
 ## Open items / ideas
 
 - Verify each venue deep link in `lib/venues.ts` by clicking through.
-- Brand name: "Crypto Stonks" vs the `onchainstocks` domain (undecided).
 - WalletConnect for mobile wallets (needs a Reown project ID).
 - Further speed: the ~106 KB of web fonts compete with JS on first load; lazy-loading wagmi/viem until a wallet is needed would take ~60 KB off the critical path (bigger refactor).
 - E2E for real ENS resolution.

@@ -21,9 +21,9 @@ export function Header({
 }) {
   return (
     <header className="header">
-      <a className="brand" href="#/" aria-label="Crypto Stonks home">
+      <a className="brand" href="#/" aria-label="Onchain Stocks home">
         <span className="brand-mark" />
-        <span className="brand-name">Crypto Stonks</span>
+        <span className="brand-name">Onchain Stocks</span>
       </a>
       <nav className="nav" aria-label="Main">
         {NAV.map((n) => (

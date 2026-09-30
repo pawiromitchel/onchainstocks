@@ -68,7 +68,7 @@ function ViewOnly({ target }: { target: string }) {
   )
 }
 
-const SITE = 'Crypto Stonks'
+const SITE = 'Onchain Stocks'
 
 function titleFor(route: Route) {
   switch (route.name) {
