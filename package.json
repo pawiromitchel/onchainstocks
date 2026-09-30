@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "sync": "node scripts/sync-stocks.mjs",
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run sync && tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview"
   },

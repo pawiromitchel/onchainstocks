@@ -9,16 +9,25 @@ type Quote = { price: number; change: number | null; liquidity: number }
 // Below this pool size a quoted price is easy to move, so the UI flags it.
 export const THIN_LIQUIDITY_USD = 25_000
 
-async function fetchQuotes(): Promise<Record<string, Quote>> {
-  const addrs = STOCKS.map((s) => s.address).join(',')
-  const res = await fetch(`https://api.dexscreener.com/tokens/v1/base/${addrs}`)
+type Pair = {
+  baseToken: { address: string }
+  priceUsd?: string
+  priceChange?: { h24?: number }
+  liquidity?: { usd?: number }
+}
+
+// DexScreener takes at most 30 addresses per request.
+async function fetchPairs(addresses: string[]): Promise<Pair[]> {
+  const res = await fetch(`https://api.dexscreener.com/tokens/v1/base/${addresses.join(',')}`)
   if (!res.ok) throw new Error(`Price API returned ${res.status}`)
-  const pairs: Array<{
-    baseToken: { address: string }
-    priceUsd?: string
-    priceChange?: { h24?: number }
-    liquidity?: { usd?: number }
-  }> = await res.json()
+  return res.json()
+}
+
+async function fetchQuotes(): Promise<Record<string, Quote>> {
+  const addrs = STOCKS.map((s) => s.address)
+  const chunks: string[][] = []
+  for (let i = 0; i < addrs.length; i += 30) chunks.push(addrs.slice(i, i + 30))
+  const pairs = (await Promise.all(chunks.map(fetchPairs))).flat()
 
   // Several pools can exist per token; the deepest one is the most trustworthy price.
   const out: Record<string, Quote> = {}
@@ -39,6 +48,8 @@ export type Row = {
   change: number | null
   value: number
   thin: boolean
+  /** has a DEX pool, so there is somewhere to buy it */
+  tradable: boolean
 }
 
 export function usePortfolio(owner: Address | undefined) {
@@ -52,18 +63,15 @@ export function usePortfolio(owner: Address | undefined) {
   const balances = useReadContracts({
     allowFailure: false,
     query: { enabled: !!owner, refetchInterval: 30_000 },
-    contracts: STOCKS.flatMap((s) => [
-      { chainId: base.id, address: s.address, abi: erc20Abi, functionName: 'balanceOf', args: [owner!] } as const,
-      { chainId: base.id, address: s.address, abi: erc20Abi, functionName: 'decimals' } as const,
-    ]),
+    contracts: STOCKS.map(
+      (s) => ({ chainId: base.id, address: s.address, abi: erc20Abi, functionName: 'balanceOf', args: [owner!] }) as const,
+    ),
   })
 
   let rows: Row[] | undefined
   if (balances.data) {
     rows = STOCKS.map((stock, i) => {
-      const raw = balances.data[i * 2] as bigint
-      const decimals = balances.data[i * 2 + 1] as number
-      const amount = Number(formatUnits(raw, decimals))
+      const amount = Number(formatUnits(balances.data[i] as bigint, stock.decimals))
       const q = quotes.data?.[stock.address]
       const price = q?.price ?? null
       return {
@@ -73,12 +81,16 @@ export function usePortfolio(owner: Address | undefined) {
         change: q?.change ?? null,
         value: price === null ? 0 : amount * price,
         thin: !!q && q.liquidity < THIN_LIQUIDITY_USD,
+        tradable: !!q,
       }
     })
   }
 
   const held = rows?.filter((r) => r.amount > 0).sort((a, b) => b.value - a.value) ?? []
-  const notHeld = rows?.filter((r) => r.amount === 0) ?? []
+  // Only offer stocks that can actually be bought, deepest pools first.
+  const notHeld = (rows?.filter((r) => r.amount === 0 && r.tradable) ?? []).sort(
+    (a, b) => (quotes.data?.[b.stock.address].liquidity ?? 0) - (quotes.data?.[a.stock.address].liquidity ?? 0),
+  )
   const total = held.reduce((sum, r) => sum + r.value, 0)
   // 24h move in dollars: value now minus value a day ago, from each token's own % change.
   const delta = held.reduce(
@@ -93,6 +105,7 @@ export function usePortfolio(owner: Address | undefined) {
     pricesReady: !!quotes.data,
     held,
     notHeld,
+    totalCount: STOCKS.length,
     total,
     delta,
     deltaPct: prev > 0 ? (delta / prev) * 100 : 0,

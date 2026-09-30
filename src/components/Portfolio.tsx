@@ -5,13 +5,18 @@ import { fmtAmount, fmtChange, fmtUsd } from '../lib/format'
 import { primaryVenue, swapHome, VENUES } from '../lib/venues'
 
 function Tile({ row, size = 44 }: { row: Row; size?: number }) {
+  const [failed, setFailed] = useState(false)
   return (
     <span
-      className="tile"
+      className={row.stock.icon && !failed ? 'tile tile-icon' : 'tile'}
       style={{ '--cl': row.stock.light, '--cd': row.stock.dark, width: size, height: size } as React.CSSProperties}
       aria-hidden="true"
     >
-      {row.stock.mono}
+      {row.stock.icon && !failed ? (
+        <img src={row.stock.icon} alt="" onError={() => setFailed(true)} loading="lazy" />
+      ) : (
+        row.stock.mono
+      )}
       <i className="tile-base"><i /></i>
     </span>
   )
@@ -54,7 +59,11 @@ function Holding({ row, viewOnly }: { row: Row; viewOnly: boolean }) {
       <div className="cell value" data-label="Value">{row.price === null ? '—' : fmtUsd(row.value)}</div>
       {!viewOnly && (
         <div className="actions">
-          <a className="btn" href={primaryVenue.url(row.stock)} target="_blank" rel="noreferrer noopener">Buy more</a>
+          {row.tradable ? (
+            <a className="btn" href={primaryVenue.url(row.stock)} target="_blank" rel="noreferrer noopener">Buy more</a>
+          ) : (
+            <span className="sub no-pool">No DEX pool yet</span>
+          )}
           <button
             className="icon-btn"
             aria-label={`More venues to swap ${row.stock.symbol}`}
@@ -70,8 +79,12 @@ function Holding({ row, viewOnly }: { row: Row; viewOnly: boolean }) {
   )
 }
 
+const FIRST_SHOWN = 8
+
 export function Portfolio({ address, viewOnly }: { address: Address; viewOnly: boolean }) {
   const p = usePortfolio(address)
+  const [showAll, setShowAll] = useState(false)
+  const shown = showAll ? p.notHeld : p.notHeld.slice(0, FIRST_SHOWN)
   const total = p.total
   const up = p.delta >= 0
 
@@ -126,7 +139,7 @@ export function Portfolio({ address, viewOnly }: { address: Address; viewOnly: b
 
       <section className="block">
         <div className="block-head">
-          <h2>{viewOnly ? 'Stocks held' : 'Your stocks'} <span className="count">{p.held.length} of 10</span></h2>
+          <h2>{viewOnly ? 'Stocks held' : 'Your stocks'} <span className="count">{p.held.length} of {p.totalCount}</span></h2>
           <span className="sub">Sorted by value</span>
         </div>
 
@@ -148,7 +161,7 @@ export function Portfolio({ address, viewOnly }: { address: Address; viewOnly: b
         <section className="block">
           <h2>Not in your wallet yet</h2>
           <div className="cards">
-            {p.notHeld.map((r) => (
+            {shown.map((r) => (
               <div className="card" key={r.stock.symbol}>
                 <div className="card-top">
                   <Tile row={r} size={36} />
@@ -162,6 +175,11 @@ export function Portfolio({ address, viewOnly }: { address: Address; viewOnly: b
               </div>
             ))}
           </div>
+          {p.notHeld.length > FIRST_SHOWN && (
+            <button className="btn btn-outline more" onClick={() => setShowAll((v) => !v)}>
+              {showAll ? 'Show fewer' : `Show all ${p.notHeld.length} stocks`}
+            </button>
+          )}
         </section>
       )}
     </main>

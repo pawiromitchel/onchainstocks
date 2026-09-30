@@ -1,27 +1,61 @@
 import type { Address } from 'viem'
+import raw from './stocks.json'
 
 export type Stock = {
   symbol: string
   name: string
   address: Address
+  decimals: number
+  icon: string | null
   mono: string
-  /** tile color on light / dark themes */
+  /** tile / chart color on light and dark themes */
   light: string
   dark: string
 }
 
-// Coinbase tokenized stocks on Base. Source: https://www.base.org/stocks
-// Addresses and symbols were cross-checked against on-chain symbol() and DexScreener.
-// Only tokens on this allowlist are ever read, so look-alike tokens cannot show up.
-export const STOCKS: Stock[] = [
-  { symbol: 'NVDAc', name: 'NVIDIA', address: '0xb20000000000000000000078ee7ce2fe4908108c', mono: 'N', light: '#4f7a0a', dark: '#9be04a' },
-  { symbol: 'METAc', name: 'Meta', address: '0xb2000000000000000000008bc8786b856e61707c', mono: 'M', light: '#1f3a5f', dark: '#6ea8ff' },
-  { symbol: 'AAPLc', name: 'Apple', address: '0xb200000000000000000000c2e324d24d7eecd1fb', mono: 'A', light: '#4a4f57', dark: '#c4c9d1' },
-  { symbol: 'GOOGLc', name: 'Alphabet', address: '0xb2000000000000000000002d0ba3164cc74f58b7', mono: 'G', light: '#7a3b69', dark: '#d98bd0' },
-  { symbol: 'AMZNc', name: 'Amazon', address: '0xb200000000000000000000d9192b6b456483c2e8', mono: 'A', light: '#8a5a00', dark: '#ffb347' },
-  { symbol: 'MSFTc', name: 'Microsoft', address: '0xb200000000000000000000ab99cfa739e253872b', mono: 'M', light: '#0f6b73', dark: '#4fd1c5' },
-  { symbol: 'MSTRc', name: 'Strategy', address: '0xb2000000000000000000004884b426556b92883d', mono: 'S', light: '#a3342c', dark: '#ff7b72' },
-  { symbol: 'SNDKc', name: 'SanDisk', address: '0xb200000000000000000000397293cb8cda9a10c5', mono: 'S', light: '#8a2f52', dark: '#ff7fa8' },
-  { symbol: 'SPCXc', name: 'SpaceX', address: '0xb2000000000000000000007b9fcbd005511acbd5', mono: 'S', light: '#3d4f8a', dark: '#8fa2ff' },
-  { symbol: 'TSLAc', name: 'Tesla', address: '0xb2000000000000000000001e800a7f5189430cd0', mono: 'T', light: '#b3401a', dark: '#ff8a5c' },
-]
+// The token list is the official Coinbase tokenized stocks API, snapshotted into
+// stocks.json by `npm run sync` (runs on every build, and daily in CI).
+// Only addresses on this allowlist are ever read, so look-alike tokens cannot show up.
+
+// Hand-picked colors for the original launch set; everything else gets a stable hue from its ticker.
+const CURATED: Record<string, { name: string; light: string; dark: string }> = {
+  NVDAc: { name: 'NVIDIA', light: '#4f7a0a', dark: '#9be04a' },
+  METAc: { name: 'Meta', light: '#1f3a5f', dark: '#6ea8ff' },
+  AAPLc: { name: 'Apple', light: '#4a4f57', dark: '#c4c9d1' },
+  GOOGLc: { name: 'Alphabet', light: '#7a3b69', dark: '#d98bd0' },
+  AMZNc: { name: 'Amazon', light: '#8a5a00', dark: '#ffb347' },
+  MSFTc: { name: 'Microsoft', light: '#0f6b73', dark: '#4fd1c5' },
+  MSTRc: { name: 'Strategy', light: '#a3342c', dark: '#ff7b72' },
+  SNDKc: { name: 'SanDisk', light: '#8a2f52', dark: '#ff7fa8' },
+  SPCXc: { name: 'SpaceX', light: '#3d4f8a', dark: '#8fa2ff' },
+  TSLAc: { name: 'Tesla', light: '#b3401a', dark: '#ff8a5c' },
+}
+
+function hue(symbol: string) {
+  let h = 0
+  for (const ch of symbol) h = (h * 31 + ch.charCodeAt(0)) % 360
+  return h
+}
+
+// "Advanced Micro Devices, Inc." -> "Advanced Micro Devices"
+function shortName(name: string) {
+  let n = name.trim()
+  const suffix = /[,\s]+(Inc\.?|Corporation|Corp\.?|Co\.?|Company|Ltd\.?|Holdings?,? Inc\.?|Group|& Co\.?)$/i
+  while (suffix.test(n)) n = n.replace(suffix, '')
+  return n
+}
+
+export const STOCKS: Stock[] = raw.map((t) => {
+  const c = CURATED[t.symbol]
+  const h = hue(t.symbol)
+  return {
+    symbol: t.symbol,
+    name: c?.name ?? shortName(t.name),
+    address: t.address as Address,
+    decimals: t.decimals,
+    icon: t.icon,
+    mono: (c?.name ?? t.name)[0].toUpperCase(),
+    light: c?.light ?? `hsl(${h} 55% 32%)`,
+    dark: c?.dark ?? `hsl(${h} 70% 68%)`,
+  }
+})
