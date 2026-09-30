@@ -1,3 +1,4 @@
+import { AnimatePresence, m } from 'motion/react'
 import { useState } from 'react'
 import { isAddress, type Address } from 'viem'
 import { normalize } from 'viem/ens'
@@ -70,13 +71,21 @@ export default function App() {
     <div className="shell">
       <Header theme={theme} onToggleTheme={toggle}>{wallet}</Header>
 
-      {target ? (
-        <ViewOnly target={target} />
-      ) : isConnected && address ? (
-        <Portfolio address={address} viewOnly={false} />
-      ) : (
-        <Landing onConnect={() => setModal(true)} />
-      )}
+      <m.div
+        key={target ? `view:${target}` : isConnected ? 'connected' : 'landing'}
+        className="view"
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+      >
+        {target ? (
+          <ViewOnly target={target} />
+        ) : isConnected && address ? (
+          <Portfolio address={address} viewOnly={false} />
+        ) : (
+          <Landing onConnect={() => setModal(true)} />
+        )}
+      </m.div>
 
       <footer className="footer">
         <p>
@@ -89,7 +98,7 @@ export default function App() {
         </p>
       </footer>
 
-      {modal && !isConnected && <ConnectModal onClose={() => setModal(false)} />}
+      <AnimatePresence>{modal && !isConnected && <ConnectModal onClose={() => setModal(false)} />}</AnimatePresence>
     </div>
   )
 }

@@ -1,6 +1,13 @@
+import { m, type Variants } from 'motion/react'
 import { useState } from 'react'
 import { isAddress } from 'viem'
 import { viewWallet } from '../lib/route'
+
+const container: Variants = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } }
+const item: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+}
 
 export function Landing({ onConnect }: { onConnect: () => void }) {
   const [query, setQuery] = useState('')
@@ -18,19 +25,19 @@ export function Landing({ onConnect }: { onConnect: () => void }) {
   }
 
   return (
-    <main className="hero">
-      <span className="tag"><i className="dot-base" />Coinbase-issued tokenized stocks · Base only</span>
-      <h1>Only your stocks. <em>Nothing else.</em></h1>
-      <p className="lede">
+    <m.main className="hero" variants={container} initial="hidden" animate="show">
+      <m.span className="tag" variants={item}><i className="dot-base" />Coinbase-issued tokenized stocks · Base only</m.span>
+      <m.h1 variants={item}>Only your stocks. <em>Nothing else.</em></m.h1>
+      <m.p className="lede" variants={item}>
         Connect any EVM wallet and see your Coinbase tokenized stock balances on Base in one clean list, with a buy
         link next to each one. Other chains and other issuers are not supported.
-      </p>
-      <div className="hero-cta">
+      </m.p>
+      <m.div className="hero-cta" variants={item}>
         <button className="btn btn-lg" onClick={onConnect}>Connect wallet</button>
         <p className="fine">Read-only. We never ask you to sign<br />anything until you choose to swap.</p>
-      </div>
+      </m.div>
 
-      <form className="lookup" onSubmit={submit}>
+      <m.form className="lookup" onSubmit={submit} variants={item}>
         <label htmlFor="lookup">Or look up any wallet, view only</label>
         <div className="lookup-row">
           <input
@@ -47,7 +54,7 @@ export function Landing({ onConnect }: { onConnect: () => void }) {
           <button className="btn btn-outline" type="submit">View portfolio</button>
         </div>
         {error && <p id="lookup-error" className="form-error" role="alert">{error}</p>}
-      </form>
-    </main>
+      </m.form>
+    </m.main>
   )
 }

@@ -1,3 +1,4 @@
+import { m } from 'motion/react'
 import { useEffect, useRef } from 'react'
 import { useConnect, useConnectors } from 'wagmi'
 
@@ -19,7 +20,13 @@ export function ConnectModal({ onClose }: { onClose: () => void }) {
 
   return (
     <dialog ref={dialog} className="modal" onClose={onClose} onClick={(e) => e.target === dialog.current && onClose()}>
-      <div className="modal-card">
+      <m.div
+        className="modal-card"
+        initial={{ opacity: 0, y: 16, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 8, scale: 0.98 }}
+        transition={{ type: 'spring', stiffness: 420, damping: 32 }}
+      >
         <div className="modal-head">
           <h2>Connect a wallet</h2>
           <button className="icon-btn ghost" onClick={onClose} aria-label="Close">
@@ -44,7 +51,7 @@ export function ConnectModal({ onClose }: { onClose: () => void }) {
           <p className="modal-note">No wallet extension found. Install MetaMask or Rabby, or open this site in your wallet's browser.</p>
         )}
         <p className="modal-note">We only read balances. Nothing is signed unless you choose to swap on an exchange.</p>
-      </div>
+      </m.div>
     </dialog>
   )
 }

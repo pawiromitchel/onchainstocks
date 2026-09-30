@@ -16,6 +16,12 @@ export function useTheme() {
     }
   }, [theme])
 
-  const toggle = useCallback(() => setTheme((t) => (t === 'dark' ? 'light' : 'dark')), [])
+  // Briefly enable color transitions so the whole page cross-fades between themes.
+  const toggle = useCallback(() => {
+    const root = document.documentElement
+    root.classList.add('theme-anim')
+    window.setTimeout(() => root.classList.remove('theme-anim'), 400)
+    setTheme((t) => (t === 'dark' ? 'light' : 'dark'))
+  }, [])
   return { theme, toggle }
 }
