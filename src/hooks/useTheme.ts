@@ -9,6 +9,11 @@ export function useTheme() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
+    // Mobile browser chrome follows the chosen theme, not just the system setting.
+    for (const meta of document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]')) {
+      meta.removeAttribute('media')
+      meta.content = theme === 'dark' ? '#000000' : '#f3efe6'
+    }
     try {
       localStorage.setItem('theme', theme)
     } catch {

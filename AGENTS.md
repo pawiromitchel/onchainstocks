@@ -126,7 +126,7 @@ The look is **financial newspaper, not crypto dashboard**: ruled tables, serif n
 - Venue menu: paper card, 1px ink border, `6px 6px 0` hard shadow, "Deepest liquidity" note in green on Aerodrome, thin-liquidity warning in red.
 - Connect modal: native `<dialog>` with `showModal()`, same hard shadow.
 - Section headers use `.block-head` (h2 left, link right, wraps on phones). Page headers use `.page-head` (3px rule, serif h1).
-- Social preview: `public/og.png` (1200x630, light theme) + OG/Twitter tags in `index.html`. If you change the headline or brand, re-render it.
+- Metadata lives in `index.html`: description, canonical, Open Graph + Twitter tags (`public/og.png`, 1200x630, light theme), JSON-LD `WebApplication`, theme-color (updated by `useTheme` when toggled). Icons: `favicon.svg` (source of truth), `favicon.ico`, `apple-touch-icon.png`, `icon-192/512.png`, `icon-maskable-512.png` (mark within the safe zone), referenced by `manifest.webmanifest`. Also `robots.txt` and `sitemap.xml` (home only; hash routes are one URL to crawlers). If you change the brand or headline, re-render og.png and the icons.
 - Footer: scope disclaimer on the left, **"Created with ❤️ by Mitchel"** (links to https://pawiromitchel.com/) on the right. Keep it on every screen.
 
 **Responsive**: under 900px the holdings table becomes compact rows (asset + value on top; price / 24h / balance in three columns; full-width actions). Stock cards go two columns, tile stacked above the name. No horizontal scrolling at any width (tested).

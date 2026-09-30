@@ -85,6 +85,19 @@ test.describe('first load', () => {
   })
 })
 
+test('ships the metadata, icons and manifest', async ({ page, request }) => {
+  await page.goto('/')
+  await expect(page).toHaveTitle('Onchain Stocks')
+  for (const sel of ['meta[name="description"]', 'meta[property="og:image"]', 'meta[name="twitter:card"]', 'link[rel="canonical"]']) {
+    await expect(page.locator(sel)).toHaveCount(1)
+  }
+  const manifest = await (await request.get('/manifest.webmanifest')).json()
+  expect(manifest.name).toBe('Onchain Stocks')
+  for (const path of ['/favicon.ico', '/favicon.svg', '/apple-touch-icon.png', '/og.png', '/robots.txt', '/sitemap.xml', ...manifest.icons.map((i: { src: string }) => `/${i.src}`)]) {
+    expect((await request.get(path)).status(), path).toBe(200)
+  }
+})
+
 test.describe('view only', () => {
   test('looks up an address: read-only, no buy buttons, correct totals', async ({ page }) => {
     await page.goto('/')
