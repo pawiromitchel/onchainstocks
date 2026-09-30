@@ -36,14 +36,21 @@ Not covered: ENS resolution against the real mainnet, and whether each exchange'
 
 ## Deploy to GitHub Pages
 
-Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site and publishes it.
-One-time setup: repo **Settings → Pages → Source: GitHub Actions**.
+Three workflows live in `.github/workflows/`:
 
-The build uses a relative base path and hash routing, so it works at `https://<user>.github.io/onchainstocks/` or on a custom domain without changes.
+| Workflow | Runs | Does |
+| --- | --- | --- |
+| `test.yml` | every PR and push to `main` | type check, lint, Playwright e2e |
+| `deploy.yml` | every push to `main` (so, when a PR is merged) and on demand | `npm run build`, then publishes `dist/` to the `gh-pages` branch |
+| `sync-stocks.yml` | daily at 05:17 UTC and on demand | refreshes `src/stocks.json`; if it changed, commits it and triggers `deploy.yml` |
+
+One-time setup: repo **Settings → Pages → Source: Deploy from a branch → `gh-pages` / root** (the branch appears after the first deploy run). Also make sure **Settings → Actions → General → Workflow permissions** allows read and write.
+
+The build uses a relative base path and hash routing, so it works at `https://pawiromitchel.com/onchainstocks/` (the account's Pages domain) or on any other path without changes. If you protect `main`, allow the Actions bot to push, or the sync commit will fail. Consider making the `test` check required before merging.
 
 ## How it works
 
-- `src/stocks.json` is a snapshot of the official [Coinbase tokenized stocks API](https://docs.base.org/sdks/tokenized-stocks/api-reference/list-tokenized-stocks) (`npm run sync`, also run by every build). The API sends no CORS headers, so the browser can't call it directly. A daily GitHub Actions run re-syncs the list, commits `src/stocks.json` if it changed, and redeploys, so new listings appear without a code change. (If you protect `main`, allow the Actions bot to push, or that commit step will fail.)
+- `src/stocks.json` is a snapshot of the official [Coinbase tokenized stocks API](https://docs.base.org/sdks/tokenized-stocks/api-reference/list-tokenized-stocks) (`npm run sync`; the `sync-stocks.yml` workflow runs it daily). The API sends no CORS headers, so the browser can't call it directly. The daily sync workflow commits `src/stocks.json` when it changed and redeploys, so new listings appear without a code change.
 - `src/tokens.ts` turns that snapshot into the allowlist of token addresses. Nothing outside it is ever read.
 - `src/hooks/usePortfolio.ts` multicalls `balanceOf` on Base, and pulls prices and 24h change from the deepest DEX pool per token. Pools under $25k liquidity are flagged as thin (for example MSTRc and TSLAc at the time of writing). Stocks with no DEX pool yet have no buy button.
 - `src/lib/venues.ts` builds the swap deep links. Click-test them if you change them.

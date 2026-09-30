@@ -6,7 +6,7 @@
   "scripts": {
     "sync": "node scripts/sync-stocks.mjs",
     "dev": "vite",
-    "build": "npm run sync && tsc -b && vite build",
+    "build": "tsc -b && vite build",
     "lint": "oxlint",
     "test:e2e": "playwright test",
     "preview": "vite preview"

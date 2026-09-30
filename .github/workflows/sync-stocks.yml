@@ -1,0 +1,43 @@
+name: Sync tokenized stocks
+
+# The Coinbase API has no CORS headers, so the site ships a snapshot (src/stocks.json).
+# This job refreshes it daily and redeploys when the list changed.
+on:
+  schedule:
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write # commit src/stocks.json
+  actions: write  # trigger deploy.yml
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Fetch the latest list
+        run: npm run sync
+
+      - name: Commit and redeploy if changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if git diff --quiet -- src/stocks.json; then
+            echo "Stock list unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/stocks.json
+          git commit -m "chore: sync tokenized stocks list"
+          git push
+          # Pushes made with GITHUB_TOKEN do not start other workflows, so dispatch the deploy explicitly.
+          gh workflow run deploy.yml --ref main

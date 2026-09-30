@@ -1,54 +1,45 @@
 name: Deploy to GitHub Pages
 
+# Merging a PR into main pushes to main, which builds and deploys the site.
+# sync-stocks.yml also triggers this workflow by hand after it commits a new stock list.
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
-  schedule:
-    - cron: '17 5 * * *' # daily rebuild picks up newly listed stocks
 
 permissions:
-  contents: write # lets the sync step commit src/stocks.json
-  pages: write
-  id-token: write
+  contents: write # peaceiris/actions-gh-pages pushes to the gh-pages branch
 
 concurrency:
-  group: pages
+  group: deploy
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - name: Sync tokenized stocks list
-        run: npm run sync
-      - name: Commit updated stocks list
-        run: |
-          if ! git diff --quiet -- src/stocks.json; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add src/stocks.json
-            git commit -m "chore: sync tokenized stocks list"
-            git push
-          fi
-      - run: npm run build
-      - run: cp dist/index.html dist/404.html
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
+      - name: Checkout
+        uses: actions/checkout@v4
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      # Hash routing means every URL is index.html; this also covers odd deep links.
+      - name: SPA fallback
+        run: cp dist/index.html dist/404.html
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
