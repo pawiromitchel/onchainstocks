@@ -27,7 +27,8 @@ export function fmtAgo(ms: number) {
   const s = Math.max(0, Math.round(ms / 1000))
   if (s < 5) return 'just now'
   if (s < 60) return `${s}s ago`
-  return `${Math.floor(s / 60)} min ago`
+  if (s < 3600) return `${Math.floor(s / 60)} min ago`
+  return `${Math.floor(s / 3600)} h ago`
 }
 
 export const changeClass = (c: number | null) => (c === null ? '' : c >= 0 ? 'up' : 'down')

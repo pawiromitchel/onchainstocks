@@ -34,7 +34,7 @@ Vite + React 19 + TypeScript, wagmi v3 + viem + TanStack Query, Motion (`motion/
 
 ```
 src/
-  main.tsx                 providers: Wagmi, QueryClient, LazyMotion(strict), MotionConfig(reducedMotion="user")
+  main.tsx                 providers: Wagmi, QueryClient, LazyMotion(strict), MotionConfig(reducedMotion="user"); prefetches quotes
   App.tsx                  shell: header, routed view, footer, connect modal. Chooses the view (see Flow), sets document.title per route.
   wagmi.ts                 chains [base, mainnet(ENS only)], injected() connector, publicnode RPCs (VITE_BASE_RPC / VITE_MAINNET_RPC override)
   stocks.json              GENERATED snapshot of the Coinbase tokenized stocks API. Do not hand-edit.
@@ -43,6 +43,7 @@ src/
   hooks/usePortfolio.ts    balanceOf multicall on Base + quotes -> held / notHeld rows, totals, 24h delta, freshness
   hooks/useTheme.ts        light/dark, persisted in localStorage, sets <html data-theme>
   lib/venues.ts            swap deep links per exchange (Aerodrome first)
+  lib/dexscreener.ts       quote URLs (30 addresses per request), shared with vite.config.ts
   lib/route.ts             hash routing: #/, #/stocks, #/stock/<SYMBOL>, #/about, #/view/<0x address | name.eth>
   lib/recent.ts            recent view-only lookups (localStorage, max 5, guarded)
   lib/format.ts            money, compact money, amount, change, "x ago", address formatting
@@ -63,6 +64,17 @@ tests/e2e/                 fixtures.ts (mock RPC, DexScreener, fake EIP-6963 wal
 - **24h delta** is derived from each token's own h24 % change.
 - **Balances are read on Base regardless of the wallet's current network**, so there is no "wrong network" state to handle.
 - wagmi **auto-reconnects** a wallet that has already authorized the site. That is expected.
+
+## Performance (keep it fast)
+
+Measured on a throttled phone profile (4G at 1.6 Mbps and 150 ms latency, 4x slower CPU): first and largest paint went from ~1.7 s to ~0.55 s, layout shift from 0.013 to 0, and the first-load transfer from 378 KB to 358 KB. Network, not CPU, is the bottleneck, so bytes on the critical path matter most.
+
+- **Static shell**: `index.html` contains the header and the landing headline, so they paint before any JS. An inline script fits it to the route (drops the headline on other routes or when `wagmi.store` says a wallet is connected, sets `aria-current`) and sets `<html data-shell="hero|bare">`. React replaces it on mount; `App`/`Landing` skip the intro animation for the parts the shell already showed. **If you change the header or the landing headline/lede/tag, change `index.html` too.** The "static shell" e2e test fails if they differ.
+- **Prices start in the HTML**: the `prefetch-quotes` plugin in `vite.config.ts` injects a script that fires the DexScreener requests immediately (`window.__quotes`); `useQuotes` consumes it once, then fetches normally.
+- **Price cache**: the last quotes are kept in `localStorage` (`quotes-cache`, max 1 h old) and used as `initialData`, so repeat visits show prices instantly; the freshness line shows their age and they are refetched at once.
+- **Chunks** (`vite.config.ts`): `react`, `motion`, `web3` (all other npm code) and the app, so a deploy only invalidates the small app chunk. The ENS normalizer (~25 KB gzipped) is loaded on demand in `ViewOnly` (dynamic `import('viem/ens')`) and kept out of `web3` by the `LAZY_ENS` pattern.
+- Fonts load without blocking paint (`preload` + `media="print"` swap); preconnects for DexScreener and the Base RPC.
+- Don't add dependencies to the critical path casually; check `npm run build` output (no chunk should near 500 KB).
 
 ## User flow
 
@@ -150,7 +162,7 @@ Build output is relative (`base: './'`) with hash routing, so it works at any pa
 ## Conventions
 
 - TypeScript strict, no `any` unless unavoidable. Keep components small; styles go in `index.css` using the tokens above.
-- Don't add dependencies casually (bundle is already ~175 KB gzipped).
+- Don't add dependencies casually (first load is ~180 KB of gzipped JS across four chunks).
 - Don't commit `node_modules`, `dist`, `test-results`, `.env*.local` (all gitignored). `VITE_*` env vars end up in the public bundle, so never put secrets in them.
 - Commits: short imperative subject; explain why in the body.
 
@@ -159,6 +171,6 @@ Build output is relative (`base: './'`) with hash routing, so it works at any pa
 - Verify each venue deep link in `lib/venues.ts` by clicking through.
 - Brand name: "Crypto Stonks" vs the `onchainstocks` domain (undecided).
 - WalletConnect for mobile wallets (needs a Reown project ID).
-- Code-split the bundle (Vite warns at >500 kB).
+- Further speed: the ~106 KB of web fonts compete with JS on first load; lazy-loading wagmi/viem until a wallet is needed would take ~60 KB off the critical path (bigger refactor).
 - E2E for real ENS resolution.
 - Optional: per-token detail (history chart), cost basis (would need an indexer or backend, out of scope for now).

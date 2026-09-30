@@ -38,6 +38,8 @@ main { display: flex; flex-direction: column; gap: 40px; flex: 1; }
 .nav a:hover { color: var(--ink); }
 .nav a[aria-current='page'] { color: var(--ink); border-bottom-color: var(--ink); }
 .btn .short { display: none; }
+/* static shell in index.html: pick the theme icon without JS */
+:root[data-theme='dark'] .i-moon, :root[data-theme='light'] .i-sun { display: none; }
 .chip { white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border: 1px solid var(--ink); font-size: 14px; font-weight: 500; }
 .chip-wallet { background: var(--card); font-family: var(--mono); font-weight: 400; padding-right: 4px; }
 .dot-base, .dot-live { width: 10px; height: 10px; border-radius: 50%; background: var(--base); display: inline-block; }

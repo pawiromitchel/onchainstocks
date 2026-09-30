@@ -1,5 +1,13 @@
-import { useQuery } from '@tanstack/react-query'
+import { queryOptions, useQuery } from '@tanstack/react-query'
+import { quoteUrls } from '../lib/dexscreener'
 import { STOCKS, type Stock } from '../tokens'
+
+declare global {
+  interface Window {
+    /** Price requests started by an inline script in index.html (see vite.config.ts). */
+    __quotes?: Promise<unknown[]>
+  }
+}
 
 export type Quote = { price: number; change: number | null; liquidity: number }
 
@@ -13,18 +21,50 @@ type Pair = {
   liquidity?: { usd?: number }
 }
 
-// DexScreener takes at most 30 addresses per request.
-async function fetchPairs(addresses: string[]): Promise<Pair[]> {
-  const res = await fetch(`https://api.dexscreener.com/tokens/v1/base/${addresses.join(',')}`)
+async function fetchPairs(url: string): Promise<Pair[]> {
+  const res = await fetch(url)
   if (!res.ok) throw new Error(`Price API returned ${res.status}`)
   return res.json()
 }
 
+// The first load reuses the requests index.html already started; later refreshes fetch as usual.
+async function loadPairs(): Promise<Pair[][]> {
+  const early = window.__quotes as Promise<Pair[][]> | undefined
+  window.__quotes = undefined
+  if (early) {
+    try {
+      return await early
+    } catch {
+      /* fall through and try again */
+    }
+  }
+  return Promise.all(quoteUrls(STOCKS.map((s) => s.address)).map(fetchPairs))
+}
+
+// The last prices are kept in the browser so a repeat visit shows numbers at once (with their
+// age in the freshness line) while fresh ones load. Older than an hour is not worth showing.
+const CACHE_KEY = 'quotes-cache'
+const CACHE_MAX_AGE = 60 * 60_000
+
+function readCache(): { at: number; data: Record<string, Quote> } | undefined {
+  try {
+    const c = JSON.parse(localStorage.getItem(CACHE_KEY) ?? 'null')
+    return c && typeof c.at === 'number' && Date.now() - c.at < CACHE_MAX_AGE ? c : undefined
+  } catch {
+    return undefined
+  }
+}
+
+function writeCache(data: Record<string, Quote>) {
+  try {
+    localStorage.setItem(CACHE_KEY, JSON.stringify({ at: Date.now(), data }))
+  } catch {
+    /* storage can be full or blocked; the cache is only a head start */
+  }
+}
+
 async function fetchQuotes(): Promise<Record<string, Quote>> {
-  const addrs = STOCKS.map((s) => s.address)
-  const chunks: string[][] = []
-  for (let i = 0; i < addrs.length; i += 30) chunks.push(addrs.slice(i, i + 30))
-  const pairs = (await Promise.all(chunks.map(fetchPairs))).flat()
+  const pairs = (await loadPairs()).flat()
 
   // Several pools can exist per token; the deepest one is the most trustworthy price.
   const out: Record<string, Quote> = {}
@@ -35,16 +75,24 @@ async function fetchQuotes(): Promise<Record<string, Quote>> {
     if (!price || (out[key] && out[key].liquidity >= liquidity)) continue
     out[key] = { price, change: p.priceChange?.h24 ?? null, liquidity }
   }
+  writeCache(out)
   return out
 }
 
+const cached = readCache()
+
+export const quotesQuery = queryOptions({
+  queryKey: ['quotes'],
+  queryFn: fetchQuotes,
+  refetchInterval: 60_000,
+  staleTime: 30_000,
+  // Cached prices are older than staleTime, so they are shown and refetched right away.
+  initialData: cached?.data,
+  initialDataUpdatedAt: cached?.at,
+})
+
 export function useQuotes() {
-  return useQuery({
-    queryKey: ['quotes'],
-    queryFn: fetchQuotes,
-    refetchInterval: 60_000,
-    staleTime: 30_000,
-  })
+  return useQuery(quotesQuery)
 }
 
 export type MarketRow = {

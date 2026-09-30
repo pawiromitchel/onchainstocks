@@ -19,7 +19,10 @@ const STEPS = [
   ['Buy on an exchange', 'Each stock links to Aerodrome and other DEXs. You confirm the swap on their site.'],
 ]
 
-export function Landing({ onConnect }: { onConnect: () => void }) {
+export function Landing({ onConnect, fromShell = false }: { onConnect: () => void; fromShell?: boolean }) {
+  // Parts the static shell already showed stay put; the rest still animates in.
+  const pre = fromShell ? undefined : item
+
   const [query, setQuery] = useState('')
   const [error, setError] = useState('')
   const [recent, setRecent] = useState(recentLookups)
@@ -39,9 +42,9 @@ export function Landing({ onConnect }: { onConnect: () => void }) {
     <main>
       <m.div className="hero-grid" variants={container} initial="hidden" animate="show">
         <div className="hero">
-          <m.span className="tag" variants={item}><i className="dot-base" />Coinbase-issued tokenized stocks · Base only</m.span>
-          <m.h1 variants={item}>Only your stocks. <em>Nothing else.</em></m.h1>
-          <m.p className="lede" variants={item}>
+          <m.span className="tag" variants={pre}><i className="dot-base" />Coinbase-issued tokenized stocks · Base only</m.span>
+          <m.h1 variants={pre}>Only your stocks. <em>Nothing else.</em></m.h1>
+          <m.p className="lede" variants={pre}>
             Connect any EVM wallet and see your Coinbase tokenized stock balances on Base in one clean list, with a buy
             link next to each one. Other chains and other issuers are not supported.
           </m.p>

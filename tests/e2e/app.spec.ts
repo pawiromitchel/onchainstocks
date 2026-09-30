@@ -1,4 +1,4 @@
-import { BUYABLE_COUNT, EMPTY_WALLET, EXPECTED_TOTAL, HELD_ORDER, injectWallet, short, stock, test, expect, WALLET } from './fixtures'
+import { BUYABLE_COUNT, EMPTY_WALLET, EXPECTED_TOTAL, HELD_ORDER, injectWallet, short, stock, STOCKS, test, expect, WALLET } from './fixtures'
 import type { Page } from '@playwright/test'
 
 async function connect(page: Page) {
@@ -47,6 +47,41 @@ test.describe('landing', () => {
     await page.getByRole('button', { name: 'View portfolio' }).click()
     await expect(page.getByRole('alert')).toContainText('Enter a 0x address or an ENS name')
     expect(page.url()).not.toContain('#/view')
+  })
+})
+
+test.describe('first load', () => {
+  test('static shell in index.html matches the app, so nothing jumps', async ({ browser, page }) => {
+    // Without JavaScript only the shell from index.html shows.
+    const bare = await browser.newContext({ javaScriptEnabled: false })
+    const shell = await bare.newPage()
+    await shell.goto('/')
+    const read = (p: Page) =>
+      Promise.all([p.locator('h1').innerText(), p.locator('.lede').innerText(), p.locator('.tag').innerText(), p.locator('.brand').innerText()])
+    const before = await read(shell)
+    await bare.close()
+
+    await page.goto('/')
+    await expect(page.getByRole('button', { name: 'View portfolio' })).toBeVisible() // React has taken over
+    expect(await read(page)).toEqual(before)
+  })
+
+  test('reuses the price requests started by index.html', async ({ page }) => {
+    let calls = 0
+    page.on('request', (r) => r.url().includes('api.dexscreener.com') && calls++)
+    await page.goto('/')
+    await expect(page.getByTestId('market-row')).toHaveCount(8)
+    expect(calls).toBe(Math.ceil(STOCKS.length / 30))
+  })
+
+  test('shows the last known prices at once on a repeat visit', async ({ page }) => {
+    await page.goto('/#/stocks')
+    await expect(page.getByTestId('market-row')).toHaveCount(40)
+    // Hold the next price response back: the cached prices must still show.
+    await page.route('**://api.dexscreener.com/**', () => {})
+    await page.reload()
+    await expect(page.getByTestId('market-row')).toHaveCount(40)
+    await expect(page.getByTestId('market-row').filter({ hasText: 'NVDAc' })).toContainText('$200.00')
   })
 })
 

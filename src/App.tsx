@@ -1,7 +1,7 @@
+import { useQuery } from '@tanstack/react-query'
 import { AnimatePresence, m } from 'motion/react'
 import { useEffect, useState } from 'react'
 import { isAddress, type Address } from 'viem'
-import { normalize } from 'viem/ens'
 import { mainnet } from 'wagmi/chains'
 import { useAccount, useDisconnect, useEnsAddress, useEnsName } from 'wagmi'
 import { About } from './components/About'
@@ -17,17 +17,25 @@ import { shortAddr } from './lib/format'
 import { rememberLookup } from './lib/recent'
 import { leaveView, useRoute, type Route } from './lib/route'
 
-function safeNormalize(name: string) {
+// The ENS normalizer (~25 KB gzipped) is only needed to look up a name, so it loads on demand.
+async function safeNormalize(name: string) {
+  const { normalize } = await import('viem/ens')
   try {
     return normalize(name)
   } catch {
-    return undefined
+    return null
   }
 }
 
 function ViewOnly({ target }: { target: string }) {
   const direct = isAddress(target, { strict: false })
-  const name = direct ? undefined : safeNormalize(target)
+  const normalized = useQuery({
+    queryKey: ['ens-normalize', target],
+    queryFn: () => safeNormalize(target),
+    enabled: !direct,
+    staleTime: Infinity,
+  })
+  const name = normalized.data ?? undefined
   const ens = useEnsAddress({ name, chainId: mainnet.id, query: { enabled: !!name } })
   const address = (direct ? target : ens.data) as Address | undefined
 
@@ -51,7 +59,7 @@ function ViewOnly({ target }: { target: string }) {
       </div>
       {address ? (
         <Portfolio address={address} viewOnly />
-      ) : ens.isLoading ? (
+      ) : normalized.isLoading || ens.isLoading ? (
         <p className="empty">Resolving {target}…</p>
       ) : (
         <p className="empty">Could not find a wallet for “{target}”. Check the address or ENS name.</p>
@@ -81,6 +89,11 @@ export default function App() {
   const [modal, setModal] = useState(false)
   const routeKey = route.name === 'view' ? `view:${route.target}` : route.name === 'stock' ? `stock:${route.symbol}` : route.name
 
+  const viewKey = route.name === 'home' ? (isConnected ? 'connected' : 'landing') : routeKey
+  // index.html already painted the landing headline; don't fade it out and back in on mount.
+  const [firstKey] = useState(viewKey)
+  const fromShell = document.documentElement.dataset.shell === 'hero' && viewKey === firstKey
+
   useEffect(() => {
     document.title = titleFor(route)
     window.scrollTo(0, 0)
@@ -105,9 +118,9 @@ export default function App() {
       <Header theme={theme} route={route} onToggleTheme={toggle}>{wallet}</Header>
 
       <m.div
-        key={route.name === 'home' ? (isConnected ? 'connected' : 'landing') : routeKey}
+        key={viewKey}
         className="view"
-        initial={{ opacity: 0, y: 8 }}
+        initial={fromShell ? false : { opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
       >
@@ -122,7 +135,7 @@ export default function App() {
         ) : isConnected && address ? (
           <Portfolio address={address} viewOnly={false} />
         ) : (
-          <Landing onConnect={() => setModal(true)} />
+          <Landing onConnect={() => setModal(true)} fromShell={fromShell} />
         )}
       </m.div>
 

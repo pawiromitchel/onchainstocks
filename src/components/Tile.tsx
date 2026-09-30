@@ -11,7 +11,7 @@ export function Tile({ stock, size = 44 }: { stock: Stock; size?: number }) {
       aria-hidden="true"
     >
       {stock.icon && !failed ? (
-        <img src={stock.icon} alt="" onError={() => setFailed(true)} loading="lazy" />
+        <img src={stock.icon} alt="" width={size} height={size} onError={() => setFailed(true)} loading="lazy" decoding="async" />
       ) : (
         stock.mono
       )}
