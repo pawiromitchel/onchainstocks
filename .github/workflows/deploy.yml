@@ -8,7 +8,7 @@ on:
     - cron: '17 5 * * *' # daily rebuild picks up newly listed stocks
 
 permissions:
-  contents: read
+  contents: write # lets the sync step commit src/stocks.json
   pages: write
   id-token: write
 
@@ -26,6 +26,17 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Sync tokenized stocks list
+        run: npm run sync
+      - name: Commit updated stocks list
+        run: |
+          if ! git diff --quiet -- src/stocks.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/stocks.json
+            git commit -m "chore: sync tokenized stocks list"
+            git push
+          fi
       - run: npm run build
       - run: cp dist/index.html dist/404.html
       - uses: actions/upload-pages-artifact@v3

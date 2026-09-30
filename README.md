@@ -33,7 +33,7 @@ The build uses a relative base path and hash routing, so it works at `https://<u
 
 ## How it works
 
-- `src/stocks.json` is a snapshot of the official [Coinbase tokenized stocks API](https://docs.base.org/sdks/tokenized-stocks/api-reference/list-tokenized-stocks) (`npm run sync`, also run by every build). The API sends no CORS headers, so the browser can't call it directly. The site is rebuilt daily, so new listings appear without a code change.
+- `src/stocks.json` is a snapshot of the official [Coinbase tokenized stocks API](https://docs.base.org/sdks/tokenized-stocks/api-reference/list-tokenized-stocks) (`npm run sync`, also run by every build). The API sends no CORS headers, so the browser can't call it directly. A daily GitHub Actions run re-syncs the list, commits `src/stocks.json` if it changed, and redeploys, so new listings appear without a code change. (If you protect `main`, allow the Actions bot to push, or that commit step will fail.)
 - `src/tokens.ts` turns that snapshot into the allowlist of token addresses. Nothing outside it is ever read.
 - `src/hooks/usePortfolio.ts` multicalls `balanceOf` on Base, and pulls prices and 24h change from the deepest DEX pool per token. Pools under $25k liquidity are flagged as thin (for example MSTRc and TSLAc at the time of writing). Stocks with no DEX pool yet have no buy button.
 - `src/lib/venues.ts` builds the swap deep links. Click-test them if you change them.
