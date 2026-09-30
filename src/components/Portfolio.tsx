@@ -2,29 +2,12 @@ import { AnimatePresence, m } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
 import type { Address } from 'viem'
 import { usePortfolio, type Row } from '../hooks/usePortfolio'
-import { fmtAmount, fmtChange, fmtUsd } from '../lib/format'
+import { changeClass, fmtAmount, fmtChange, fmtUsd, fmtUsdMove } from '../lib/format'
+import { stockHref } from '../lib/route'
+import { primaryVenue, VENUES } from '../lib/venues'
 import { CountUp } from './CountUp'
-import { primaryVenue, swapHome, VENUES } from '../lib/venues'
-
-function Tile({ row, size = 44 }: { row: Row; size?: number }) {
-  const [failed, setFailed] = useState(false)
-  return (
-    <span
-      className={row.stock.icon && !failed ? 'tile tile-icon' : 'tile'}
-      style={{ '--cl': row.stock.light, '--cd': row.stock.dark, width: size, height: size } as React.CSSProperties}
-      aria-hidden="true"
-    >
-      {row.stock.icon && !failed ? (
-        <img src={row.stock.icon} alt="" onError={() => setFailed(true)} loading="lazy" />
-      ) : (
-        row.stock.mono
-      )}
-      <i className="tile-base"><i /></i>
-    </span>
-  )
-}
-
-const changeClass = (c: number | null) => (c === null ? '' : c >= 0 ? 'up' : 'down')
+import { Freshness } from './Freshness'
+import { Tile } from './Tile'
 
 function VenueMenu({ row }: { row: Row }) {
   return (
@@ -75,13 +58,13 @@ function Holding({ row, viewOnly, index }: { row: Row; viewOnly: boolean; index:
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: Math.min(index, 10) * 0.05, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="asset">
-        <Tile row={row} />
+      <a className="asset" href={stockHref(row.stock.symbol)}>
+        <Tile stock={row.stock} />
         <div>
           <div className="sym">{row.stock.symbol}</div>
           <div className="sub">{row.stock.name} · Base</div>
         </div>
-      </div>
+      </a>
       <div className="cell price" data-label="Price">
         {row.price === null ? '—' : fmtUsd(row.price)}
         {row.thin && <span className="thin" title="Thin liquidity, price may be unreliable">thin</span>}
@@ -119,6 +102,7 @@ export function Portfolio({ address, viewOnly }: { address: Address; viewOnly: b
   const shown = showAll ? p.notHeld : p.notHeld.slice(0, FIRST_SHOWN)
   const total = p.total
   const up = p.delta >= 0
+  const largest = total > 0 ? p.held[0] : undefined
 
   return (
     <main>
@@ -128,7 +112,7 @@ export function Portfolio({ address, viewOnly }: { address: Address; viewOnly: b
           <div className="total">{p.loading ? '…' : <CountUp value={total} />}</div>
           {p.held.length > 0 && p.pricesReady && (
             <div className={`delta ${up ? 'up' : 'down'}`}>
-              {up ? '▲ +' : '▼ −'}{fmtUsd(Math.abs(p.delta))} ({up ? '+' : '−'}{Math.abs(p.deltaPct).toFixed(2)}%) <span>past 24h</span>
+              {up ? '▲ +' : '▼ −'}{fmtUsdMove(Math.abs(p.delta))} ({up ? '+' : '−'}{Math.abs(p.deltaPct).toFixed(2)}%) <span>past 24h</span>
             </div>
           )}
           {p.held.length > 0 && total > 0 && (
@@ -156,20 +140,20 @@ export function Portfolio({ address, viewOnly }: { address: Address; viewOnly: b
             </>
           )}
         </div>
-        <aside className="summary-side">
-          {viewOnly ? (
-            <>
-              <h2>Read-only snapshot</h2>
-              <p>Balances for Coinbase-issued stock tokens on Base. Other assets and other chains are not shown. Nothing here can move funds.</p>
-            </>
-          ) : (
-            <>
-              <h2>Buy or swap into a stock</h2>
-              <p>Shows only stock tokens issued by Coinbase, on Base. Other assets and other chains are not shown.</p>
-              <a className="btn btn-lg" href={swapHome} target="_blank" rel="noreferrer noopener">
-                Choose a stock to buy
-              </a>
-            </>
+        <aside className="summary-side" aria-label="Summary">
+          <dl className="glance">
+            <div>
+              <dt>Positions</dt>
+              <dd>{p.loading ? '…' : `${p.held.length} of ${p.totalCount}`}</dd>
+            </div>
+            <div>
+              <dt>Largest</dt>
+              <dd>{largest ? `${largest.stock.symbol} ${((largest.value / total) * 100).toFixed(0)}%` : '—'}</dd>
+            </div>
+          </dl>
+          <Freshness updatedAt={p.updatedAt} fetching={p.fetching} onRefresh={() => void p.refresh()} />
+          {!viewOnly && (
+            <a className="btn btn-lg" href="#/stocks">Browse all {p.totalCount} stocks</a>
           )}
         </aside>
       </section>
@@ -209,14 +193,14 @@ export function Portfolio({ address, viewOnly }: { address: Address; viewOnly: b
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: Math.min(i, 7) * 0.04 }}
               >
-                <div className="card-top">
-                  <Tile row={r} size={36} />
+                <a className="card-top" href={stockHref(r.stock.symbol)}>
+                  <Tile stock={r.stock} size={36} />
                   <div>
                     <div className="sym">{r.stock.symbol}</div>
                     <div className="sub">{r.stock.name}</div>
                   </div>
                   <div className="card-price">{r.price === null ? '—' : fmtUsd(r.price)}</div>
-                </div>
+                </a>
                 <a className="btn btn-outline" href={primaryVenue.url(r.stock)} target="_blank" rel="noreferrer noopener">Buy {r.stock.symbol}</a>
               </m.div>
             ))}

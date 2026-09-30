@@ -19,6 +19,15 @@ test.describe('landing', () => {
     await expect(page.getByRole('button', { name: 'Connect wallet' }).first()).toBeVisible()
     await expect(page.getByLabel('Or look up any wallet, view only')).toBeVisible()
     await expect(page.getByRole('link', { name: 'Mitchel' })).toHaveAttribute('href', 'https://pawiromitchel.com/')
+    await expect(page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Portfolio' })).toHaveAttribute('aria-current', 'page')
+  })
+
+  test('previews the deepest pools without a wallet', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.getByTestId('market-row')).toHaveCount(8)
+    await page.getByRole('link', { name: 'See all 40 stocks' }).click()
+    await expect(page).toHaveURL(/#\/stocks$/)
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('All 40 tokenized stocks')
   })
 
   test('theme toggle switches to OLED dark and persists', async ({ page }) => {
@@ -54,7 +63,18 @@ test.describe('view only', () => {
     await expect(page.getByRole('link', { name: 'Buy more' })).toHaveCount(0)
     await expect(page.getByRole('button', { name: /More venues/ })).toHaveCount(0)
     await expect(page.getByRole('heading', { name: 'Not in your wallet yet' })).toHaveCount(0)
-    await expect(page.getByRole('heading', { name: 'Read-only snapshot' })).toBeVisible()
+    await expect(page.getByRole('complementary', { name: 'Summary' })).toContainText('3 of 40')
+    await expect(page.getByRole('button', { name: 'Copy link' })).toBeVisible()
+  })
+
+  test('remembers wallets that were looked up', async ({ page }) => {
+    await page.goto(`/#/view/${WALLET}`)
+    await expect(page.getByTestId('holding')).toHaveCount(3)
+    await page.getByRole('button', { name: 'Look up another' }).click()
+    const recent = page.getByRole('link', { name: short(WALLET) })
+    await expect(recent).toHaveAttribute('href', `#/view/${WALLET}`)
+    await page.getByRole('button', { name: 'Clear' }).click()
+    await expect(recent).toHaveCount(0)
   })
 
   test('"Look up another" returns to the landing page', async ({ page }) => {
@@ -81,7 +101,8 @@ test.describe('connected wallet', () => {
     await expect(page.getByTestId('total-value')).toHaveText(EXPECTED_TOTAL)
     await expect(page.getByTestId('holding').locator('.sym')).toHaveText(HELD_ORDER)
     await expect(page.getByRole('status')).toHaveCount(0) // no view-only banner
-    await expect(page.getByText('3 of 40')).toBeVisible()
+    await expect(page.getByRole('heading', { name: /Your stocks/ })).toContainText('3 of 40')
+    await expect(page.getByTestId('freshness')).toContainText(/Updated|Updating/)
   })
 
   test('buy links deep-link to the right token', async ({ page }) => {
@@ -146,11 +167,79 @@ test.describe('connected wallet', () => {
   })
 })
 
+test.describe('stocks', () => {
+  test('lists every stock, searches and sorts', async ({ page, isMobile }) => {
+    await page.goto('/#/stocks')
+    const rows = page.getByTestId('market-row')
+    await expect(rows).toHaveCount(40)
+    // Deepest pools first, stocks without a pool last.
+    await expect(rows.last()).toContainText(/WENc|BIRDc/)
+    await expect(rows.last()).toContainText('No pool yet')
+
+    if (isMobile) {
+      await page.getByLabel('Sort').selectOption('price:desc')
+    } else {
+      await page.getByRole('button', { name: /Price/ }).click()
+      await expect(page.getByRole('columnheader', { name: /Price/ })).toHaveAttribute('aria-sort', 'descending')
+    }
+    await expect(rows.first()).toContainText('TSLAc') // $400, the highest fixture price
+
+    await page.getByLabel('Search stocks').fill('nvid')
+    await expect(rows).toHaveCount(1)
+    await expect(rows.first()).toContainText('NVDAc')
+    await page.getByLabel('Search stocks').fill('zzz')
+    await expect(page.getByText('No Coinbase stock token matches')).toBeVisible()
+  })
+
+  test('stock page shows price, venues, contract and warnings', async ({ page }) => {
+    const tsla = stock('TSLAc')
+    await page.goto('/#/stocks')
+    await page.getByTestId('market-row').filter({ hasText: 'TSLAc' }).getByRole('link', { name: /^TSLAc/ }).click()
+    await expect(page).toHaveURL(/#\/stock\/TSLAc$/)
+    await expect(page.getByTestId('stock-price')).toHaveText('$400.00')
+    await expect(page.getByText('Thin liquidity. Expect heavy slippage')).toBeVisible()
+    await expect(page.getByTestId('contract')).toHaveText(tsla.address)
+    await expect(page.getByRole('link', { name: 'BaseScan' })).toHaveAttribute('href', `https://basescan.org/token/${tsla.address}`)
+    for (const venue of ['Aerodrome', 'Uniswap', 'Matcha', '1inch', 'CoW Swap']) {
+      await expect(page.getByRole('link', { name: `Swap TSLAc on ${venue}` })).toHaveAttribute('target', '_blank')
+    }
+    await expect(page).toHaveTitle(/TSLAc/)
+  })
+
+  test('stock without a pool has no venues', async ({ page }) => {
+    await page.goto('/#/stock/WENc')
+    await expect(page.getByText('No DEX pool yet')).toBeVisible()
+    await expect(page.getByRole('heading', { name: /Where to swap/ })).toHaveCount(0)
+  })
+
+  test('unknown symbols are refused', async ({ page }) => {
+    await page.goto('/#/stock/FAKEc')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Not a Coinbase stock token')
+  })
+
+  test('connected wallets see their position on a stock page', async ({ page }) => {
+    await connect(page)
+    await page.getByTestId('holding').filter({ hasText: 'NVDAc' }).getByRole('link', { name: /^NVDAc/ }).click()
+    await expect(page.getByText('In your wallet')).toBeVisible()
+    await expect(page.getByText('≈ $300.00')).toBeVisible()
+  })
+})
+
+test('about page answers the common questions', async ({ page }) => {
+  await page.goto('/#/about')
+  await page.getByText('Does this site touch my funds?').click()
+  await expect(page.getByText('It never asks for a signature')).toBeVisible()
+})
+
 test('layout never scrolls sideways', async ({ page }) => {
   await connect(page)
   await expect(page.getByTestId('holding').first()).toBeVisible()
-  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
-  expect(overflow).toBeLessThanOrEqual(1)
+  for (const hash of ['', '#/stocks', '#/stock/TSLAc', '#/about', `#/view/${WALLET}`]) {
+    if (hash) await page.goto(`/${hash}`)
+    await expect(page.locator('main')).toBeVisible()
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
+    expect(overflow, hash || 'portfolio').toBeLessThanOrEqual(1)
+  }
 })
 
 test.describe('motion', () => {

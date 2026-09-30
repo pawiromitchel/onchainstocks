@@ -35,16 +35,19 @@ Vite + React 19 + TypeScript, wagmi v3 + viem + TanStack Query, Motion (`motion/
 ```
 src/
   main.tsx                 providers: Wagmi, QueryClient, LazyMotion(strict), MotionConfig(reducedMotion="user")
-  App.tsx                  shell: header, routed view, footer, connect modal. Chooses the view (see Flow).
+  App.tsx                  shell: header, routed view, footer, connect modal. Chooses the view (see Flow), sets document.title per route.
   wagmi.ts                 chains [base, mainnet(ENS only)], injected() connector, publicnode RPCs (VITE_BASE_RPC / VITE_MAINNET_RPC override)
   stocks.json              GENERATED snapshot of the Coinbase tokenized stocks API. Do not hand-edit.
   tokens.ts                turns stocks.json into the STOCKS allowlist (+ colors, short names)
-  hooks/usePortfolio.ts    balanceOf multicall on Base + DexScreener quotes -> held / notHeld rows, totals, 24h delta
+  hooks/useQuotes.ts       DexScreener quotes (deepest pool per token), THIN_LIQUIDITY_USD, useMarket() for the stock list
+  hooks/usePortfolio.ts    balanceOf multicall on Base + quotes -> held / notHeld rows, totals, 24h delta, freshness
   hooks/useTheme.ts        light/dark, persisted in localStorage, sets <html data-theme>
   lib/venues.ts            swap deep links per exchange (Aerodrome first)
-  lib/route.ts             hash routing: #/view/<0x address | name.eth>
-  lib/format.ts            money, amount, change, address formatting
-  components/              Header, Landing, ConnectModal, Portfolio (+ Holding, VenueMenu, Tile), CountUp
+  lib/route.ts             hash routing: #/, #/stocks, #/stock/<SYMBOL>, #/about, #/view/<0x address | name.eth>
+  lib/recent.ts            recent view-only lookups (localStorage, max 5, guarded)
+  lib/format.ts            money, compact money, amount, change, "x ago", address formatting
+  components/              Header (+ nav), Landing, Market (MarketTable, MarketPage), StockPage, About (FAQ),
+                           ConnectModal, Portfolio (+ Holding, VenueMenu), Tile, Freshness, CopyButton, CountUp
   index.css                all styling, CSS variables per theme
 scripts/sync-stocks.mjs    fetches the API into src/stocks.json (keeps the old file if the API is down)
 tests/e2e/                 fixtures.ts (mock RPC, DexScreener, fake EIP-6963 wallet) + app.spec.ts
@@ -63,11 +66,16 @@ tests/e2e/                 fixtures.ts (mock RPC, DexScreener, fake EIP-6963 wal
 
 ## User flow
 
-1. **Landing** (not connected, no hash): headline, "Connect wallet" button, and a "look up any wallet, view only" field (address or ENS).
+Header nav on every screen: **Portfolio** (`#/`), **Stocks** (`#/stocks`), **About** (`#/about`), with `aria-current` on the active one. On phones the nav drops to its own row and "Connect wallet" shortens to "Connect".
+
+1. **Landing** (not connected, no hash): headline, "Connect wallet" button, a "look up any wallet, view only" field (address or ENS) with up to 5 **recent lookups** below it (only lookups that resolved; "Clear" wipes them), a **"How it works"** column on the right, and **"Deepest pools on Base"**: the top 8 stocks by liquidity with a "See all 40 stocks" link.
 2. **Connect** -> modal lists wallets found via EIP-6963 (falls back to a generic "Injected" entry). Success closes the modal and shows the connected portfolio. No WalletConnect yet (needs a Reown project ID).
-3. **Connected portfolio**: total value (count-up), 24h change, allocation bar + legend, "Your stocks" table sorted by value, each row with **Buy more** (Aerodrome deep link) and a chevron menu with all venues. Below: **"Not in your wallet yet"**, only stocks that have a pool, deepest first, 8 shown, "Show all N stocks" expands. Header wallet chip has a disconnect button.
-4. **View only** (`#/view/<address|ens>`): yellow banner ("View only. You are looking at ..."), same totals and table, **no buy buttons, no venue menu, no "not in your wallet" section**, side note says "Read-only snapshot". "Look up another" returns to landing. ENS resolves on mainnet; unresolvable input shows "Could not find a wallet".
-5. **Empty wallet**: "No Coinbase tokenized stocks in this wallet on Base." (connected users still see the buy cards).
+3. **Connected portfolio**: total value (count-up), 24h change (moves under half a cent show as `<$0.01`), allocation bar + legend, a side panel with positions, largest holding, "Updated Xs ago" + refresh, and "Browse all N stocks", "Your stocks" table sorted by value, each row with **Buy more** (Aerodrome deep link) and a chevron menu with all venues. Below: **"Not in your wallet yet"**, only stocks that have a pool, deepest first, 8 shown, "Show all N stocks" expands. Header wallet chip has a disconnect button.
+4. **View only** (`#/view/<address|ens>`): yellow banner ("View only. You are looking at ...") with **Copy link** and **Look up another**, same totals, side panel and table, **no buy buttons, no venue menu, no "not in your wallet" section, no "Browse all stocks"**. "Look up another" returns to landing. ENS resolves on mainnet; unresolvable input shows "Could not find a wallet".
+5. **Stocks** (`#/stocks`): all stocks with price, 24h, pool liquidity (thin flag) and a Buy link, deepest first, stocks without a pool last ("No pool yet"). Search by ticker or company; sort by clicking column headers (desktop) or the Sort select (phones, where headers are hidden). Freshness + refresh.
+6. **Stock page** (`#/stock/<SYMBOL>`, case-insensitive): name, DEX price, 24h, pool liquidity (+ thin warning), your balance if connected, every venue as a row with its own link, contract address with Copy + BaseScan. Unknown symbols get "Not a Coinbase stock token". Asset names in every table link here.
+7. **About** (`#/about`): FAQ as `<details>`.
+8. **Empty wallet**: "No Coinbase tokenized stocks in this wallet on Base." (connected users still see the buy cards).
 
 View-only is a hard rule: anything that implies trading is hidden.
 
@@ -105,6 +113,8 @@ The look is **financial newspaper, not crypto dashboard**: ruled tables, serif n
 - Stock tile: official Coinbase equity icon on a white rounded square with a small Base dot badge; falls back to a serif monogram if the image fails.
 - Venue menu: paper card, 1px ink border, `6px 6px 0` hard shadow, "Deepest liquidity" note in green on Aerodrome, thin-liquidity warning in red.
 - Connect modal: native `<dialog>` with `showModal()`, same hard shadow.
+- Section headers use `.block-head` (h2 left, link right, wraps on phones). Page headers use `.page-head` (3px rule, serif h1).
+- Social preview: `public/og.png` (1200x630, light theme) + OG/Twitter tags in `index.html`. If you change the headline or brand, re-render it.
 - Footer: scope disclaimer on the left, **"Created with ❤️ by Mitchel"** (links to https://pawiromitchel.com/) on the right. Keep it on every screen.
 
 **Responsive**: under 900px the holdings table becomes compact rows (asset + value on top; price / 24h / balance in three columns; full-width actions). Stock cards go two columns, tile stacked above the name. No horizontal scrolling at any width (tested).
@@ -147,6 +157,7 @@ Build output is relative (`base: './'`) with hash routing, so it works at any pa
 ## Open items / ideas
 
 - Verify each venue deep link in `lib/venues.ts` by clicking through.
+- Brand name: "Crypto Stonks" vs the `onchainstocks` domain (undecided).
 - WalletConnect for mobile wallets (needs a Reown project ID).
 - Code-split the bundle (Vite warns at >500 kB).
 - E2E for real ENS resolution.

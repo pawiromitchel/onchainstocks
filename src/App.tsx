@@ -1,16 +1,21 @@
 import { AnimatePresence, m } from 'motion/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { isAddress, type Address } from 'viem'
 import { normalize } from 'viem/ens'
 import { mainnet } from 'wagmi/chains'
 import { useAccount, useDisconnect, useEnsAddress, useEnsName } from 'wagmi'
+import { About } from './components/About'
 import { ConnectModal } from './components/ConnectModal'
+import { CopyButton } from './components/CopyButton'
 import { Header } from './components/Header'
 import { Landing } from './components/Landing'
+import { MarketPage } from './components/Market'
 import { Portfolio } from './components/Portfolio'
+import { StockPage } from './components/StockPage'
 import { useTheme } from './hooks/useTheme'
 import { shortAddr } from './lib/format'
-import { leaveView, useViewTarget } from './lib/route'
+import { rememberLookup } from './lib/recent'
+import { leaveView, useRoute, type Route } from './lib/route'
 
 function safeNormalize(name: string) {
   try {
@@ -26,6 +31,11 @@ function ViewOnly({ target }: { target: string }) {
   const ens = useEnsAddress({ name, chainId: mainnet.id, query: { enabled: !!name } })
   const address = (direct ? target : ens.data) as Address | undefined
 
+  // Only remember lookups that actually led to a wallet.
+  useEffect(() => {
+    if (address) rememberLookup(target)
+  }, [address, target])
+
   return (
     <>
       <div className="banner" role="status">
@@ -34,7 +44,10 @@ function ViewOnly({ target }: { target: string }) {
           <strong>View only.</strong> You are looking at <code>{direct ? shortAddr(target) : target}</code>
           {!direct && address && <> <code className="faint">({shortAddr(address)})</code></>}. Buying and swapping need a connected wallet.
         </p>
-        <button className="btn btn-outline" onClick={leaveView}>Look up another</button>
+        <div className="banner-actions">
+          <CopyButton text={window.location.href} label="Copy link" />
+          <button className="btn btn-outline" onClick={leaveView}>Look up another</button>
+        </div>
       </div>
       {address ? (
         <Portfolio address={address} viewOnly />
@@ -47,13 +60,31 @@ function ViewOnly({ target }: { target: string }) {
   )
 }
 
+const SITE = 'Crypto Stonks'
+
+function titleFor(route: Route) {
+  switch (route.name) {
+    case 'stocks': return `All stocks · ${SITE}`
+    case 'stock': return `${route.symbol} · ${SITE}`
+    case 'about': return `About · ${SITE}`
+    case 'view': return `${route.target} · ${SITE}`
+    default: return SITE
+  }
+}
+
 export default function App() {
   const { theme, toggle } = useTheme()
   const { address, isConnected } = useAccount()
   const { disconnect } = useDisconnect()
   const ensName = useEnsName({ address, chainId: mainnet.id })
-  const target = useViewTarget()
+  const route = useRoute()
   const [modal, setModal] = useState(false)
+  const routeKey = route.name === 'view' ? `view:${route.target}` : route.name === 'stock' ? `stock:${route.symbol}` : route.name
+
+  useEffect(() => {
+    document.title = titleFor(route)
+    window.scrollTo(0, 0)
+  }, [routeKey]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const wallet = isConnected && address ? (
     <span className="chip chip-wallet">
@@ -64,22 +95,30 @@ export default function App() {
       </button>
     </span>
   ) : (
-    <button className="btn" onClick={() => setModal(true)}>Connect wallet</button>
+    <button className="btn" onClick={() => setModal(true)} aria-label="Connect wallet">
+      <span className="long">Connect wallet</span><span className="short" aria-hidden="true">Connect</span>
+    </button>
   )
 
   return (
     <div className="shell">
-      <Header theme={theme} onToggleTheme={toggle}>{wallet}</Header>
+      <Header theme={theme} route={route} onToggleTheme={toggle}>{wallet}</Header>
 
       <m.div
-        key={target ? `view:${target}` : isConnected ? 'connected' : 'landing'}
+        key={route.name === 'home' ? (isConnected ? 'connected' : 'landing') : routeKey}
         className="view"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
       >
-        {target ? (
-          <ViewOnly target={target} />
+        {route.name === 'view' ? (
+          <ViewOnly target={route.target} />
+        ) : route.name === 'stocks' ? (
+          <MarketPage />
+        ) : route.name === 'stock' ? (
+          <StockPage symbol={route.symbol} owner={isConnected ? address : undefined} />
+        ) : route.name === 'about' ? (
+          <About />
         ) : isConnected && address ? (
           <Portfolio address={address} viewOnly={false} />
         ) : (

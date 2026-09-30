@@ -1,12 +1,21 @@
 import { AnimatePresence, m } from 'motion/react'
 import type { Theme } from '../hooks/useTheme'
+import type { Route } from '../lib/route'
+
+const NAV = [
+  { href: '#/', label: 'Portfolio', match: (r: Route) => r.name === 'home' || r.name === 'view' },
+  { href: '#/stocks', label: 'Stocks', match: (r: Route) => r.name === 'stocks' || r.name === 'stock' },
+  { href: '#/about', label: 'About', match: (r: Route) => r.name === 'about' },
+]
 
 export function Header({
   theme,
+  route,
   onToggleTheme,
   children,
 }: {
   theme: Theme
+  route: Route
   onToggleTheme: () => void
   children?: React.ReactNode
 }) {
@@ -16,6 +25,11 @@ export function Header({
         <span className="brand-mark" />
         <span className="brand-name">Crypto Stonks</span>
       </a>
+      <nav className="nav" aria-label="Main">
+        {NAV.map((n) => (
+          <a key={n.href} href={n.href} aria-current={n.match(route) ? 'page' : undefined}>{n.label}</a>
+        ))}
+      </nav>
       <div className="header-actions">
         <button
           className="icon-btn"
@@ -39,7 +53,6 @@ export function Header({
             </m.span>
           </AnimatePresence>
         </button>
-        <span className="chip"><i className="dot-base" />Base</span>
         {children}
       </div>
     </header>
