@@ -63,13 +63,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/eb816a29bbe55360569198a1a25f02299c0272504161766c10a25b3d9c58774a.png"
   },
   {
-    "symbol": "DKNGc",
-    "name": "DraftKings Inc.",
-    "address": "0xb2000000000000000000009b870441031d4d8a41",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/be55bff30474ca82127ed1ee1e414453e5b70566e96444b49287b7935df0c147.png"
-  },
-  {
     "symbol": "DUOLc",
     "name": "Duolingo, Inc.",
     "address": "0xb200000000000000000000a613d12deafbbb1db7",
