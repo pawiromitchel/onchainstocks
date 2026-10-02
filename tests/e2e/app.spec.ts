@@ -25,9 +25,9 @@ test.describe('landing', () => {
   test('previews the deepest pools without a wallet', async ({ page }) => {
     await page.goto('/')
     await expect(page.getByTestId('market-row')).toHaveCount(8)
-    await page.getByRole('link', { name: 'See all 40 stocks' }).click()
+    await page.getByRole('link', { name: `See all ${STOCKS.length} stocks` }).click()
     await expect(page).toHaveURL(/#\/stocks$/)
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText('All 40 tokenized stocks')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(`All ${STOCKS.length} tokenized stocks`)
   })
 
   test('theme toggle switches to OLED dark and persists', async ({ page }) => {
@@ -76,11 +76,11 @@ test.describe('first load', () => {
 
   test('shows the last known prices at once on a repeat visit', async ({ page }) => {
     await page.goto('/#/stocks')
-    await expect(page.getByTestId('market-row')).toHaveCount(40)
+    await expect(page.getByTestId('market-row')).toHaveCount(STOCKS.length)
     // Hold the next price response back: the cached prices must still show.
     await page.route('**://api.dexscreener.com/**', () => {})
     await page.reload()
-    await expect(page.getByTestId('market-row')).toHaveCount(40)
+    await expect(page.getByTestId('market-row')).toHaveCount(STOCKS.length)
     await expect(page.getByTestId('market-row').filter({ hasText: 'NVDAc' })).toContainText('$200.00')
   })
 })
@@ -111,7 +111,7 @@ test.describe('view only', () => {
     await expect(page.getByRole('link', { name: 'Buy more' })).toHaveCount(0)
     await expect(page.getByRole('button', { name: /More venues/ })).toHaveCount(0)
     await expect(page.getByRole('heading', { name: 'Not in your wallet yet' })).toHaveCount(0)
-    await expect(page.getByRole('complementary', { name: 'Summary' })).toContainText('3 of 40')
+    await expect(page.getByRole('complementary', { name: 'Summary' })).toContainText(`3 of ${STOCKS.length}`)
     await expect(page.getByRole('button', { name: 'Copy link' })).toBeVisible()
   })
 
@@ -149,7 +149,7 @@ test.describe('connected wallet', () => {
     await expect(page.getByTestId('total-value')).toHaveText(EXPECTED_TOTAL)
     await expect(page.getByTestId('holding').locator('.sym')).toHaveText(HELD_ORDER)
     await expect(page.getByRole('status')).toHaveCount(0) // no view-only banner
-    await expect(page.getByRole('heading', { name: /Your stocks/ })).toContainText('3 of 40')
+    await expect(page.getByRole('heading', { name: /Your stocks/ })).toContainText(`3 of ${STOCKS.length}`)
     await expect(page.getByTestId('freshness')).toContainText(/Updated|Updating/)
   })
 
@@ -219,7 +219,7 @@ test.describe('stocks', () => {
   test('lists every stock, searches and sorts', async ({ page, isMobile }) => {
     await page.goto('/#/stocks')
     const rows = page.getByTestId('market-row')
-    await expect(rows).toHaveCount(40)
+    await expect(rows).toHaveCount(STOCKS.length)
     // Deepest pools first, stocks without a pool last.
     await expect(rows.last()).toContainText(/WENc|BIRDc/)
     await expect(rows.last()).toContainText('No pool yet')
