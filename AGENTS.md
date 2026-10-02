@@ -43,11 +43,12 @@ src/
   hooks/usePortfolio.ts    balanceOf multicall on Base + quotes -> held / notHeld rows, totals, 24h delta, freshness
   hooks/useTheme.ts        light/dark, persisted in localStorage, sets <html data-theme>
   lib/venues.ts            swap deep links per exchange (Aerodrome first)
+  lib/history.ts           price history from GeckoTerminal OHLCV (7D hourly closes, 30D 4-hour closes) for a token's deepest pool
   lib/dexscreener.ts       quote URLs (30 addresses per request), shared with vite.config.ts
   lib/route.ts             hash routing: #/, #/stocks, #/stock/<SYMBOL>, #/about, #/view/<0x address | name.eth>
   lib/recent.ts            recent view-only lookups (localStorage, max 5, guarded)
   lib/format.ts            money, compact money, amount, change, "x ago", address formatting
-  components/              Header (+ nav), Landing, Market (MarketTable, MarketPage), StockPage, About (FAQ),
+  components/              Header (+ nav), Landing, Market (MarketTable, MarketPage), StockPage, PriceChart, About (FAQ),
                            ConnectModal, Portfolio (+ Holding, VenueMenu), Tile, Freshness, CopyButton, CountUp
   index.css                all styling, CSS variables per theme
 scripts/sync-stocks.mjs    fetches the API into src/stocks.json (keeps the old file if the API is down)
@@ -57,10 +58,11 @@ tests/e2e/                 fixtures.ts (mock RPC, DexScreener, fake EIP-6963 wal
 
 ### Data rules (easy to get wrong)
 
-- **Token list** comes from `https://api.coinbase.com/v1/tokenized-stocks` (40 tokens at time of writing; base.org/stocks shows only a subset). That API sends **no CORS headers**, so the browser cannot call it. It is snapshotted into `src/stocks.json` at CI time. Never add a runtime fetch to it.
+- **Token list** comes from `https://api.coinbase.com/v1/tokenized-stocks` (58 tokens at time of writing; base.org/stocks shows only a subset). That API sends **no CORS headers**, so the browser cannot call it. It is snapshotted into `src/stocks.json` at CI time. Never add a runtime fetch to it.
 - **Only addresses in the allowlist are read.** Keep it that way so look-alike tokens never show.
 - **Decimals** come from the API (8 for these tokens, not 18). Don't assume 18.
 - **Prices** are DEX pool prices from DexScreener (`/tokens/v1/base/{addresses}`, max 30 per call, so it is chunked). The deepest-liquidity pool wins. Under $25k liquidity is flagged "thin" (warn in UI and in the venue menu). A token with no pool has no price and **no buy button**.
+- **Price history** (stock page only) comes from GeckoTerminal (`api.geckoterminal.com`, sends CORS headers, free but rate limited, so fetch it only on the stock page). DexScreener has none. The pool address is the deepest pool's `pairAddress`, stored on each quote (`Quote.pool`; quotes cached before the chart existed lack it, so the chart waits for fresh prices). 7D = hourly closes, 30D = 4-hour closes; the chosen range is kept in localStorage (`chart-range`). Hidden when a token has no pool.
 - **24h delta** is derived from each token's own h24 % change.
 - **Balances are read on Base regardless of the wallet's current network**, so there is no "wrong network" state to handle.
 - wagmi **auto-reconnects** a wallet that has already authorized the site. That is expected.
@@ -80,12 +82,12 @@ Measured on a throttled phone profile (4G at 1.6 Mbps and 150 ms latency, 4x slo
 
 Header nav on every screen: **Portfolio** (`#/`), **Stocks** (`#/stocks`), **About** (`#/about`), with `aria-current` on the active one. On phones the nav drops to its own row and "Connect wallet" shortens to "Connect".
 
-1. **Landing** (not connected, no hash): headline, "Connect wallet" button, a "look up any wallet, view only" field (address or ENS) with up to 5 **recent lookups** below it (only lookups that resolved; "Clear" wipes them), a **"How it works"** column on the right, and **"Deepest pools on Base"**: the top 8 stocks by liquidity with a "See all 40 stocks" link.
+1. **Landing** (not connected, no hash): headline, "Connect wallet" button, a "look up any wallet, view only" field (address or ENS) with up to 5 **recent lookups** below it (only lookups that resolved; "Clear" wipes them), a **"How it works"** column on the right, and **"Deepest pools on Base"**: the top 8 stocks by liquidity with a "See all N stocks" link.
 2. **Connect** -> modal lists wallets found via EIP-6963 (falls back to a generic "Injected" entry). Success closes the modal and shows the connected portfolio. No WalletConnect yet (needs a Reown project ID).
 3. **Connected portfolio**: total value (count-up), 24h change (moves under half a cent show as `<$0.01`), allocation bar + legend, a side panel with positions, largest holding, "Updated Xs ago" + refresh, and "Browse all N stocks", "Your stocks" table sorted by value, each row with **Buy more** (Aerodrome deep link) and a chevron menu with all venues. Below: **"Not in your wallet yet"**, only stocks that have a pool, deepest first, 8 shown, "Show all N stocks" expands. Header wallet chip has a disconnect button.
 4. **View only** (`#/view/<address|ens>`): yellow banner ("View only. You are looking at ...") with **Copy link** and **Look up another**, same totals, side panel and table, **no buy buttons, no venue menu, no "not in your wallet" section, no "Browse all stocks"**. "Look up another" returns to landing. ENS resolves on mainnet; unresolvable input shows "Could not find a wallet".
 5. **Stocks** (`#/stocks`): all stocks with price, 24h, pool liquidity (thin flag) and a Buy link, deepest first, stocks without a pool last ("No pool yet"). Search by ticker or company; sort by clicking column headers (desktop) or the Sort select (phones, where headers are hidden). Freshness + refresh.
-6. **Stock page** (`#/stock/<SYMBOL>`, case-insensitive): name, DEX price, 24h, pool liquidity (+ thin warning), your balance if connected, every venue as a row with its own link, contract address with Copy + BaseScan. Unknown symbols get "Not a Coinbase stock token". Asset names in every table link here.
+6. **Stock page** (`#/stock/<SYMBOL>`, case-insensitive): name, DEX price, 24h, pool liquidity (+ thin warning), your balance if connected, **Price history** (line chart, 7D/30D toggle, high/low/change; hover, drag or arrow keys read a price; SVG drawn at real pixel width, no chart library), every venue as a row with its own link, contract address with Copy + BaseScan. Unknown symbols get "Not a Coinbase stock token". Asset names in every table link here.
 7. **About** (`#/about`): FAQ as `<details>`.
 8. **Empty wallet**: "No Coinbase tokenized stocks in this wallet on Base." (connected users still see the buy cards).
 
