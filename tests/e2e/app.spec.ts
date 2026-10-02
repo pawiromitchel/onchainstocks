@@ -1,4 +1,4 @@
-import { BUYABLE_COUNT, EMPTY_WALLET, EXPECTED_TOTAL, HELD_ORDER, injectWallet, short, stock, STOCKS, test, expect, WALLET } from './fixtures'
+import { BUYABLE_COUNT, EMPTY_WALLET, EXPECTED_TOTAL, HELD_ORDER, HISTORY_CHANGE, injectWallet, short, stock, STOCKS, test, expect, WALLET } from './fixtures'
 import type { Page } from '@playwright/test'
 
 async function connect(page: Page) {
@@ -254,8 +254,40 @@ test.describe('stocks', () => {
     await expect(page).toHaveTitle(/TSLAc/)
   })
 
+  test('stock page charts the past 7 and 30 days', async ({ page }) => {
+    await page.goto('/#/stock/TSLAc')
+    const chart = page.getByTestId('price-chart')
+    await expect(chart).toBeVisible()
+    await expect(page.getByText('7-day change')).toBeVisible()
+    await expect(page.getByTestId('chart-change')).toHaveText(HISTORY_CHANGE)
+    await expect(page.getByText('Hourly closes')).toBeVisible()
+
+    await chart.hover()
+    await expect(page.getByTestId('chart-tip')).toBeVisible()
+    await chart.focus()
+    await page.keyboard.press('ArrowLeft')
+    await expect(page.getByTestId('chart-tip')).toContainText('UTC')
+
+    await page.getByRole('button', { name: '30D' }).click()
+    await expect(page.getByText('30-day change')).toBeVisible()
+    await expect(page.getByText('4-hour closes')).toBeVisible()
+    await expect(page.getByRole('button', { name: '30D' })).toHaveAttribute('aria-pressed', 'true')
+
+    await page.reload()
+    await expect(page.getByText('30-day change')).toBeVisible()
+  })
+
+  test('chart failure offers a retry', async ({ page }) => {
+    await page.route('**://api.geckoterminal.com/**', (r) => r.fulfill({ status: 500, body: '{}' }))
+    await page.goto('/#/stock/TSLAc')
+    await expect(page.getByText('Price history for TSLAc is unavailable right now.')).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Retry' })).toBeVisible()
+  })
+
   test('stock without a pool has no venues', async ({ page }) => {
     await page.goto('/#/stock/WENc')
+    await expect(page.getByTestId('price-chart')).toHaveCount(0)
+    await expect(page.getByRole('heading', { name: 'Price history' })).toHaveCount(0)
     await expect(page.getByText('No DEX pool yet')).toBeVisible()
     await expect(page.getByRole('heading', { name: /Where to swap/ })).toHaveCount(0)
   })

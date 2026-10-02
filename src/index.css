@@ -128,6 +128,25 @@ main { display: flex; flex-direction: column; gap: 40px; flex: 1; }
 .spin { animation: spin 0.8s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* price chart */
+.range { display: inline-flex; border: 1px solid var(--ink); }
+.range button { font: 500 13px var(--mono); background: transparent; color: var(--ink); border: 0; padding: 0 16px; min-height: 44px; cursor: pointer; }
+.range button + button { border-left: 1px solid var(--ink); }
+.range button[aria-pressed='true'] { background: var(--btn-bg); color: var(--btn-ink); }
+.chart-readout { display: flex; flex-wrap: wrap; gap: 8px 32px; }
+.chart-readout > div { display: flex; flex-direction: column; gap: 2px; }
+.chart-readout b { font-family: var(--serif); font-weight: 500; font-size: 22px; font-variant-numeric: tabular-nums; }
+.plot { position: relative; background: var(--card); border: 1px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); padding: 14px 10px 6px; touch-action: pan-y; }
+.plot svg { display: block; max-width: 100%; overflow: visible; }
+.plot svg text { font: 11px var(--mono); fill: var(--muted); }
+.plot:focus-visible { outline: 2px solid var(--base); outline-offset: 4px; }
+.plot-state { display: flex; align-items: center; justify-content: center; gap: 12px; aspect-ratio: 3 / 1; min-height: 160px; color: var(--muted); font-size: 14px; }
+.plot-tip { position: absolute; pointer-events: none; transform: translate(-50%, -100%); background: var(--card); border: 1px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); padding: 6px 10px; font: 12px var(--mono); white-space: nowrap; }
+.plot-tip b { display: block; font: 500 15px var(--serif); }
+.chart-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 20px; }
+.chart-foot .stamp { font-family: var(--mono); }
+.linklike { background: none; border: 0; padding: 0; font: inherit; color: var(--ink); text-decoration: underline; cursor: pointer; }
+
 /* holdings */
 .block { display: flex; flex-direction: column; gap: 16px; }
 .block h2 { font-family: var(--serif); font-size: 30px; font-weight: 600; }

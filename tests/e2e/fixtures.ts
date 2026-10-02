@@ -72,7 +72,27 @@ async function rpcRoute(route: Route, chain: 'base' | 'mainnet') {
   return route.fulfill({ status: 200, contentType: 'application/json', headers: CORS, body: JSON.stringify(json) })
 }
 
+const poolOf = (address: string) => `0x${address.slice(2, 10).padStart(40, '0')}`
+
+/** A fake price series: `limit` candles ending now, rising 4% from first to last close (400 -> 416), newest first like GeckoTerminal. */
+export const HISTORY_CHANGE = '▲ 4.00%'
+function candles(limit: number, hours: number) {
+  const now = Math.floor(Date.now() / 3_600_000) * 3600
+  return Array.from({ length: limit }, (_, k) => {
+    const i = limit - 1 - k // 0 is the oldest
+    const close = 400 + (16 * i) / (limit - 1) + (i % 2 ? 2 : -2) * (i > 0 && i < limit - 1 ? 1 : 0)
+    return [now - k * hours * 3600, close, close + 3, close - 3, close, 1000]
+  })
+}
+
 export async function mockNetwork(page: Page) {
+  await page.route('**://api.geckoterminal.com/**', (route) => {
+    const url = new URL(route.request().url())
+    const limit = Number(url.searchParams.get('limit'))
+    const hours = Number(url.searchParams.get('aggregate'))
+    const body = { data: { attributes: { ohlcv_list: candles(limit, hours) } } }
+    return route.fulfill({ status: 200, contentType: 'application/json', headers: CORS, body: JSON.stringify(body) })
+  })
   await page.route('**://base-rpc.publicnode.com/**', (r) => rpcRoute(r, 'base'))
   await page.route('**://ethereum-rpc.publicnode.com/**', (r) => rpcRoute(r, 'mainnet'))
   // Token icons are decorative; serve a tiny image so tests never wait on the network.
@@ -82,6 +102,7 @@ export async function mockNetwork(page: Page) {
   await page.route('**://api.dexscreener.com/**', (route) => {
     const asked = new Set(route.request().url().split('/').pop()!.split(',').map((a) => a.toLowerCase()))
     const pairs = STOCKS.filter((s) => asked.has(s.address) && !NO_POOL.has(s.symbol)).map((s) => ({
+      pairAddress: poolOf(s.address),
       baseToken: { address: s.address, symbol: s.symbol },
       priceUsd: String(PRICE[s.symbol] ?? 50),
       priceChange: { h24: CHANGE[s.symbol] ?? 0 },

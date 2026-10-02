@@ -9,12 +9,14 @@ declare global {
   }
 }
 
-export type Quote = { price: number; change: number | null; liquidity: number }
+/** `pool` is the deepest pool's address; it is missing in prices cached before the price chart existed. */
+export type Quote = { price: number; change: number | null; liquidity: number; pool?: string }
 
 // Below this pool size a quoted price is easy to move, so the UI flags it.
 export const THIN_LIQUIDITY_USD = 25_000
 
 type Pair = {
+  pairAddress?: string
   baseToken: { address: string }
   priceUsd?: string
   priceChange?: { h24?: number }
@@ -73,7 +75,7 @@ async function fetchQuotes(): Promise<Record<string, Quote>> {
     const liquidity = p.liquidity?.usd ?? 0
     const price = Number(p.priceUsd)
     if (!price || (out[key] && out[key].liquidity >= liquidity)) continue
-    out[key] = { price, change: p.priceChange?.h24 ?? null, liquidity }
+    out[key] = { price, change: p.priceChange?.h24 ?? null, liquidity, pool: p.pairAddress }
   }
   writeCache(out)
   return out

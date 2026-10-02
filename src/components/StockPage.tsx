@@ -1,10 +1,11 @@
 import type { Address } from 'viem'
-import { useMarket } from '../hooks/useQuotes'
+import { useMarket, useQuotes } from '../hooks/useQuotes'
 import { usePortfolio } from '../hooks/usePortfolio'
 import { changeClass, fmtAmount, fmtChange, fmtCompactUsd, fmtUsd } from '../lib/format'
 import { VENUES } from '../lib/venues'
 import { STOCKS, type Stock } from '../tokens'
 import { CopyButton } from './CopyButton'
+import { PriceChart } from './PriceChart'
 import { Tile } from './Tile'
 
 function YourPosition({ stock, owner }: { stock: Stock; owner: Address }) {
@@ -23,6 +24,7 @@ function YourPosition({ stock, owner }: { stock: Stock; owner: Address }) {
 export function StockPage({ symbol, owner }: { symbol: string; owner?: Address }) {
   const stock = STOCKS.find((s) => s.symbol.toLowerCase() === symbol.toLowerCase())
   const market = useMarket()
+  const quotes = useQuotes()
 
   if (!stock) {
     return (
@@ -66,6 +68,8 @@ export function StockPage({ symbol, owner }: { symbol: string; owner?: Address }
         </div>
         {owner && <YourPosition stock={stock} owner={owner} />}
       </section>
+
+      {row?.tradable && <PriceChart pool={quotes.data?.[stock.address]?.pool} symbol={stock.symbol} />}
 
       {row?.tradable && (
         <section className="block">
