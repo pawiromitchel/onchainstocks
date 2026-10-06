@@ -60,7 +60,7 @@
     "name": "Smartbird, Inc.",
     "address": "0xb200000000000000000000535fe96f18204bfd96",
     "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/bce21de071543a4d49e02c85f917b61557698dd63982c126c29ee15e1ec8d8d3.png"
+    "icon": null
   },
   {
     "symbol": "BMNRc",
