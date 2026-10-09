@@ -77,6 +77,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/d70bb7fb735dcde077a73666df4739c3ef2c8eb23033fd6dc863f1693e5fa80b.png"
   },
   {
+    "symbol": "BIDUc",
+    "name": "Baidu, Inc.",
+    "address": "0xb200000000000000000000d2b7d9aee52f6c6bef",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/1a0bfe6276bd8beb45ce7950895c37a138882d8c9bd59f777bba3471277a6f61.png"
+  },
+  {
     "symbol": "BIRDc",
     "name": "Smartbird, Inc.",
     "address": "0xb200000000000000000000535fe96f18204bfd96",
@@ -103,6 +110,13 @@
     "address": "0xb20000000000000000000024170488e788cbbcb4",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/bbc3f19dc7938d050ec626ee066c73a804097ebe8faaf9cc0151b06fc84ea467.png"
+  },
+  {
+    "symbol": "BUDc",
+    "name": "Anheuser-Busch InBev SA/NV",
+    "address": "0xb200000000000000000000c36ce081dd09e86ca2",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/cacf41b617cd2d7fd725f96f339e5acb07c5841bc8aab1be80cc4a29145586c9.png"
   },
   {
     "symbol": "BYNDc",
@@ -427,6 +441,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/a05b651716324c9658fa72b80f6a0c75345326792d50b047eee01d3b631e16a5.png"
   },
   {
+    "symbol": "NIOc",
+    "name": "NIO Inc.",
+    "address": "0xb2000000000000000000002d2b5dc53c61f1ba06",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/ac665f1d791de17c3ec442c3b84586056348497737b452544300975adf84e5e4.png"
+  },
+  {
     "symbol": "NOWc",
     "name": "ServiceNow, Inc.",
     "address": "0xb20000000000000000000082cd2c7801305808df",
@@ -448,6 +469,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/1fee9b7a44e800d438dd9d96c3283e05784c925c2c871a48ff735950740b551a.png"
   },
   {
+    "symbol": "NVOc",
+    "name": "Novo Nordisk A/S",
+    "address": "0xb2000000000000000000008d5328e9208773dc58",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/40e22cff092db9b0a95196d7105afde4145299332eb5794b58562382c0ac00dc.png"
+  },
+  {
     "symbol": "OKLOc",
     "name": "Oklo Inc.",
     "address": "0xb2000000000000000000009188edfd2fcc8cc81e",
@@ -467,6 +495,13 @@
     "address": "0xb200000000000000000000347afba223d7b6b63c",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/37fc406ca612c0231f6aba50bdcb1e8057958a075da45d718723986b8ddffd98.png"
+  },
+  {
+    "symbol": "PDDc",
+    "name": "PDD Holdings Inc.",
+    "address": "0xb200000000000000000000c8a7223510467d8563",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/5d18e481ceb6b7612380035def60c670814b3801ab68e9b8f4e4c9598b4ceadd.png"
   },
   {
     "symbol": "PFEc",
@@ -588,11 +623,25 @@
     "icon": "https://metadata.coinbase.com/equity_icons/d20c3cc2178970f08a787ff2d6ebf9157bbcccd378b609613e1a1874455b4982.png"
   },
   {
+    "symbol": "SAPc",
+    "name": "SAP SE",
+    "address": "0xb200000000000000000000da6f64c306234127e0",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/7c2c9745cb4ea3c24be66107262f3b0578cdd24573a66293fe201e94c1457b1c.png"
+  },
+  {
     "symbol": "SBETc",
     "name": "Sharplink, Inc.",
     "address": "0xb200000000000000000000559ec0bedaacf436ea",
     "decimals": 8,
     "icon": null
+  },
+  {
+    "symbol": "SEc",
+    "name": "Sea Limited",
+    "address": "0xb2000000000000000000003088798f6d0722aaac",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/2d1bb197ce0e821bd2f1b4cd7055c9db780c59a6231b9ac6ca938585ee55e82f.png"
   },
   {
     "symbol": "SEZLc",
@@ -607,6 +656,13 @@
     "address": "0xb200000000000000000000b57f99acec3a7490d0",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/ac2eaf5a52a092935837e6c11177b3199c6c10dab7f8c26ca0d4c6d2b882c8d0.png"
+  },
+  {
+    "symbol": "SKHYc",
+    "name": "SK hynix Inc.",
+    "address": "0xb200000000000000000000187f7071d6e321a7d2",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/d60ca6d297c51ce1dbab713c3ea1fd66f0ff0c79f48b8958521ec7b01f67cabe.png"
   },
   {
     "symbol": "SMRc",
@@ -628,6 +684,13 @@
     "address": "0xb2000000000000000000003ef37a7c863dc1482a",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/4f3e0d19c776dfb813ddd0ef80f1edd6da128dee3971fccaa10707e1fd1d1996.png"
+  },
+  {
+    "symbol": "SONYc",
+    "name": "Sony Group Corporation",
+    "address": "0xb200000000000000000000a26326a922ffa87f6c",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/3dd0c7e60556b727ecc20c577d42a858fe6f1b05cf271134d2e831238fb99db8.png"
   },
   {
     "symbol": "SOUNc",
@@ -677,6 +740,13 @@
     "address": "0xb2000000000000000000009426b660396ebcf343",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/6fb95c3e55a0ffbd2c1c8eb9f82977caefb59707770d94fb02459ae2b7794ec9.png"
+  },
+  {
+    "symbol": "VALEc",
+    "name": "Vale S.A.",
+    "address": "0xb20000000000000000000063376b142c0764b489",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/4f7e35bb8f69121d81f921b472896929dde9dd00fce4976fea947b2231d8924c.png"
   },
   {
     "symbol": "VKTXc",
