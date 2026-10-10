@@ -42,6 +42,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/06d3c2cac2c89e3a8bc4b2fe40ff259f104b55244321dea400e44b22f215896b.png"
   },
   {
+    "symbol": "ARMc",
+    "name": "Arm Holdings plc",
+    "address": "0xb20000000000000000000026215d755356e5043f",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/105cfffcd8a29797e3765f254e13c404b98a54279a96f7fffa7df9048bf7edff.png"
+  },
+  {
     "symbol": "ASTSc",
     "name": "AST SpaceMobile, Inc.",
     "address": "0xb200000000000000000000b1a29cf17a1819288a",
@@ -82,6 +89,13 @@
     "address": "0xb200000000000000000000d2b7d9aee52f6c6bef",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/1a0bfe6276bd8beb45ce7950895c37a138882d8c9bd59f777bba3471277a6f61.png"
+  },
+  {
+    "symbol": "BILIc",
+    "name": "Bilibili Inc.",
+    "address": "0xb200000000000000000000ca7c6d1438e7245eb6",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/1420eff041ba9157e413f9064446f481b6242fbe4c7ade48231bc465523affa4.png"
   },
   {
     "symbol": "BIRDc",
@@ -131,6 +145,13 @@
     "address": "0xb200000000000000000000f215e4c890cfb7176b",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/1ce59340dc15e072634ddb07e08193f030b867a4791c113c90325a8ce9182070.png"
+  },
+  {
+    "symbol": "CANc",
+    "name": "Canaan Inc.",
+    "address": "0xb200000000000000000000f32d61ba597eddfbfd",
+    "decimals": 8,
+    "icon": null
   },
   {
     "symbol": "CBRSc",
@@ -301,6 +322,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/bc682656824c3a35ec0a710fc066e18a40ed69d47e9024dd1e14e619be9ba123.png"
   },
   {
+    "symbol": "HSAIc",
+    "name": "Hesai Group",
+    "address": "0xb200000000000000000000f3049f4aa834b23b64",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/76b4909f9cef340820e980ece18569342af4045b091e447e681ac93dd2cc9d3f.png"
+  },
+  {
     "symbol": "HTZc",
     "name": "Hertz Global Holdings, Inc.",
     "address": "0xb2000000000000000000002601c5c94f435da168",
@@ -313,6 +341,13 @@
     "address": "0xb2000000000000000000006ee1c139a723872e09",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/6e5c70af1553b6d63ceba6dd136c7851ab399d2f3b9a7a7311d7b03230a36d3c.png"
+  },
+  {
+    "symbol": "INFYc",
+    "name": "Infosys Limited",
+    "address": "0xb200000000000000000000f6b0417af5f52341fc",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/383a0bb75c8509297716661fb9d72ec25fb52509249cf91a3eaecc83c5dce286.png"
   },
   {
     "symbol": "INTCc",
@@ -348,6 +383,13 @@
     "address": "0xb20000000000000000000081050ac3d4395df527",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/f3b80cf8a85d0d70228a96cb0dad82a2df9b0a4dc1a8b394d21198a19ad8c0d4.png"
+  },
+  {
+    "symbol": "LIc",
+    "name": "Li Auto Inc.",
+    "address": "0xb200000000000000000000d61efd9f54a23ef9eb",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/cbf1975c03a9e4ecc5446153f51501115dbd844962590c03fe5320341a10ab24.png"
   },
   {
     "symbol": "LITEc",
@@ -446,6 +488,13 @@
     "address": "0xb2000000000000000000002d2b5dc53c61f1ba06",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/ac665f1d791de17c3ec442c3b84586056348497737b452544300975adf84e5e4.png"
+  },
+  {
+    "symbol": "NOKc",
+    "name": "Nokia Corporation",
+    "address": "0xb2000000000000000000005ac674f707e357409c",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/a439a52a14be6becd7b40d129b295d675b9cde07a4014813e367ebd223ce4c1a.png"
   },
   {
     "symbol": "NOWc",
@@ -623,6 +672,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/d20c3cc2178970f08a787ff2d6ebf9157bbcccd378b609613e1a1874455b4982.png"
   },
   {
+    "symbol": "SANc",
+    "name": "Banco Santander, S.A.",
+    "address": "0xb20000000000000000000017bb66e9301e913a99",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/e93fcbab94f33ba761eac1c4fc0c0ecee04e30abb9c9f732af807550c7444e14.png"
+  },
+  {
     "symbol": "SAPc",
     "name": "SAP SE",
     "address": "0xb200000000000000000000da6f64c306234127e0",
@@ -735,6 +791,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/d75a8b2017e7ee6df912acb6b8db26f7a45fb5115d24982bc719085e6d484846.png"
   },
   {
+    "symbol": "ULc",
+    "name": "Unilever Plc",
+    "address": "0xb200000000000000000000349ef3aa93a0897476",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/229bef72405fb1665bac441ee932a9078b297fb1bb440ec5a71893c7e8427cf9.png"
+  },
+  {
     "symbol": "USDEc",
     "name": "StablecoinX Inc.",
     "address": "0xb2000000000000000000009426b660396ebcf343",
@@ -789,6 +852,13 @@
     "address": "0xb2000000000000000000008a7508619c717a7106",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/ae7ad5135c891584a070f63a78f9718841abeee55631fbfe2053191fa7bd1925.png"
+  },
+  {
+    "symbol": "WRDc",
+    "name": "WeRide Inc.",
+    "address": "0xb200000000000000000000e88efe88d8ade3f0da",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/9db143a13b85570c4ea5eca8ed4106218e050dc6ab61ec6d8ac3cefa0f774032.png"
   },
   {
     "symbol": "WULFc",
