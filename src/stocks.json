@@ -1,12 +1,5 @@
 [
   {
-    "symbol": "AAPLc",
-    "name": "Apple Inc.",
-    "address": "0xb200000000000000000000c2e324d24d7eecd1fb",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/873819f4b14efe44b94abecbc8e8864d2998163abd0ca55b449ee6eb07d0d94c.png"
-  },
-  {
     "symbol": "AEOc",
     "name": "American Eagle Outfitters, Inc.",
     "address": "0xb2000000000000000000006064f8ec027f042294",
@@ -19,6 +12,13 @@
     "address": "0xb2000000000000000000000d8ce462e99ee7a47b",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/15a01962474463e33042583faa6ddaa2ca493101d56d49337b8f7530ecf10a50.png"
+  },
+  {
+    "symbol": "APPc",
+    "name": "AppLovin Corporation",
+    "address": "0xb20000000000000000000006f910a0e7bbd3c168",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/1ae0f31ce639d549c9300876c0123f85055a180a7410c8e5f6921bac36aad99f.png"
   },
   {
     "symbol": "ARMc",
@@ -441,6 +441,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/b0023876e88d8c35430d618a5008e423023187143d62f22977c95a29ae59f276.png"
   },
   {
+    "symbol": "PZZAc",
+    "name": "Papa John’s International, Inc.",
+    "address": "0xb20000000000000000000068987dacde1db79cd4",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/0a00d14b4caa708d6beacbeaa6e3708e495f98721c182169a80577684e36649f.png"
+  },
+  {
     "symbol": "RBLXc",
     "name": "Roblox Corporation",
     "address": "0xb2000000000000000000005bd7ae89b9e6189bb5",
@@ -453,20 +460,6 @@
     "address": "0xb20000000000000000000066242d4067724cb7a1",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/b10e490495d7918a3b6ae1281f416cb608a4642ba05ec442ed14546b40c8936d.png"
-  },
-  {
-    "symbol": "RGTIc",
-    "name": "Rigetti Computing, Inc.",
-    "address": "0xb200000000000000000000c22fff2785bb27b39a",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/9b802f56dc1c9921ac0e8b31c158a4083f301f96ae91e1b5665bdbe3b9ae5987.png"
-  },
-  {
-    "symbol": "RIOTc",
-    "name": "Riot Platforms, Inc.",
-    "address": "0xb200000000000000000000bd0c7627b663c581a6",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/fa1d2d3ff5f612941f77718f48b7bbc7dfb3e4b960cc85f1de85ddbe1792ab47.png"
   },
   {
     "symbol": "RIVNc",
@@ -488,6 +481,13 @@
     "address": "0xb2000000000000000000004aa2b559ca0a0bbf5d",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/d20c3cc2178970f08a787ff2d6ebf9157bbcccd378b609613e1a1874455b4982.png"
+  },
+  {
+    "symbol": "RUNc",
+    "name": "Sunrun Inc.",
+    "address": "0xb200000000000000000000b1b9200405fb52a8cf",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/b5975ef0827957f26349b364948faa820cc4b1f720f94d546eb0679427141eb7.png"
   },
   {
     "symbol": "RXRXc",
@@ -525,11 +525,11 @@
     "icon": "https://metadata.coinbase.com/equity_icons/672880962adbe80d1e51d19d93341a7c210805774a03893b67fc4d820e2a8e3b.png"
   },
   {
-    "symbol": "SGc",
-    "name": "Sweetgreen, Inc.",
-    "address": "0xb200000000000000000000b57f99acec3a7490d0",
+    "symbol": "SHAZc",
+    "name": "SharonAI Holdings Inc.",
+    "address": "0xb2000000000000000000000d9947c759429e7fe5",
     "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/ac2eaf5a52a092935837e6c11177b3199c6c10dab7f8c26ca0d4c6d2b882c8d0.png"
+    "icon": null
   },
   {
     "symbol": "SKHYc",
@@ -588,13 +588,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/167394b7046ca7d39d932b055788ee4ecff943d1770245a160018097a6d0d319.png"
   },
   {
-    "symbol": "TKOc",
-    "name": "TKO Group Holdings, Inc.",
-    "address": "0xb200000000000000000000b8f841940325db6b2c",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/7aeb6f88aef9f4cc731145e70ff45ec6201913c3172f4df89427a48203457616.png"
-  },
-  {
     "symbol": "TSLAc",
     "name": "Tesla Inc.",
     "address": "0xb2000000000000000000001e800a7f5189430cd0",
@@ -635,6 +628,13 @@
     "address": "0xb200000000000000000000979ef4dd6a001b58b1",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/03bd0dfebaec70a477a85b63dd448ab2ab77db5d47b2e8fb173a26540d0862da.png"
+  },
+  {
+    "symbol": "Wc",
+    "name": "Wayfair Inc.",
+    "address": "0xb20000000000000000000089bc72c3e637a02adb",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/6e69d105351da355eb4b1f74b4bfd6a0a6ee157da4333c85f2da7af093068a2b.png"
   },
   {
     "symbol": "WDCc",
