@@ -182,6 +182,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/9d61ba02eb2c7b9998871d3e28c5a6016da42cee433ad2890666d53d6c3d1792.png"
   },
   {
+    "symbol": "ENPHc",
+    "name": "Enphase Energy, Inc.",
+    "address": "0xb2000000000000000000007a90b2d9ed101035a8",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/220762aafa4e62d4fc771a4555da809ee2519106a479f56a05f70b7022b95e73.png"
+  },
+  {
     "symbol": "FIGRc",
     "name": "Figure Technology Solutions, Inc.",
     "address": "0xb2000000000000000000005a41bef59807119850",
@@ -201,13 +208,6 @@
     "address": "0xb2000000000000000000005550e8506124236271",
     "decimals": 8,
     "icon": null
-  },
-  {
-    "symbol": "GEMIc",
-    "name": "Gemini Space Station, Inc.",
-    "address": "0xb2000000000000000000009c52748e1d1cbd5fd6",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/05d3e6078ee3a4f17c1ec9aa5f53a672fe2fe54119c287dff9b7e32cb1b5ed78.png"
   },
   {
     "symbol": "GLXYc",
@@ -238,13 +238,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/c5c723e9033c85cb8ee016a0674a3e1bdc0b2d3027a86aeb8108895479f22a3b.png"
   },
   {
-    "symbol": "HPQc",
-    "name": "HP Inc.",
-    "address": "0xb2000000000000000000009a3602cf5d020afa98",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/bc682656824c3a35ec0a710fc066e18a40ed69d47e9024dd1e14e619be9ba123.png"
-  },
-  {
     "symbol": "HTZc",
     "name": "Hertz Global Holdings, Inc.",
     "address": "0xb2000000000000000000002601c5c94f435da168",
@@ -257,6 +250,13 @@
     "address": "0xb2000000000000000000006ee1c139a723872e09",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/6e5c70af1553b6d63ceba6dd136c7851ab399d2f3b9a7a7311d7b03230a36d3c.png"
+  },
+  {
+    "symbol": "IBRXc",
+    "name": "ImmunityBio, Inc.",
+    "address": "0xb20000000000000000000077d13d6c79b6c11c5a",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/961698841f64be9b00b74675f116d9b348995b0f2b840cb6f9e007c2128a9fc6.png"
   },
   {
     "symbol": "INTCc",
@@ -525,11 +525,11 @@
     "icon": "https://metadata.coinbase.com/equity_icons/d60ca6d297c51ce1dbab713c3ea1fd66f0ff0c79f48b8958521ec7b01f67cabe.png"
   },
   {
-    "symbol": "SMRc",
-    "name": "NuScale Power Corporation",
-    "address": "0xb200000000000000000000978546fe604b8dcbc6",
+    "symbol": "SMPLc",
+    "name": "The Simply Good Foods Company",
+    "address": "0xb2000000000000000000001409f816682b7772b7",
     "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/fa08e923a6853f402583ce7428f73772d6d85363592a98df76dbc5fd2fdd1536.png"
+    "icon": "https://metadata.coinbase.com/equity_icons/bb5b6db40535a12593bc151a8df38fbe094c8fa95ed5f52ba03ab64b7be7cbbb.png"
   },
   {
     "symbol": "SNDKc",
@@ -544,13 +544,6 @@
     "address": "0xb2000000000000000000003ef37a7c863dc1482a",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/4f3e0d19c776dfb813ddd0ef80f1edd6da128dee3971fccaa10707e1fd1d1996.png"
-  },
-  {
-    "symbol": "SONYc",
-    "name": "Sony Group Corporation",
-    "address": "0xb200000000000000000000a26326a922ffa87f6c",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/3dd0c7e60556b727ecc20c577d42a858fe6f1b05cf271134d2e831238fb99db8.png"
   },
   {
     "symbol": "SOUNc",
@@ -581,6 +574,20 @@
     "icon": "https://metadata.coinbase.com/equity_icons/a3b67028295d0e9fa3182c867b8a9afed5ebcbd8c012de3a46e160ae5e490980.png"
   },
   {
+    "symbol": "TTDc",
+    "name": "The Trade Desk, Inc.",
+    "address": "0xb2000000000000000000008baf7bb82e4c37743f",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/d970b958126644d80b338172d4952891a64c309fc3b82cf57362ae4f2c663f8a.png"
+  },
+  {
+    "symbol": "UAAc",
+    "name": "Under Armour, Inc.",
+    "address": "0xb200000000000000000000879a74c76c73a27d71",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/4441d4b1824a4a8ff41a9665a8c53fdf540ff2c3a5183a260b75d1313ac82064.png"
+  },
+  {
     "symbol": "Uc",
     "name": "Unity Software Inc.",
     "address": "0xb200000000000000000000902f48cba1f39149f7",
@@ -607,13 +614,6 @@
     "address": "0xb20000000000000000000063376b142c0764b489",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/4f7e35bb8f69121d81f921b472896929dde9dd00fce4976fea947b2231d8924c.png"
-  },
-  {
-    "symbol": "VKTXc",
-    "name": "Viking Therapeutics, Inc.",
-    "address": "0xb200000000000000000000979ef4dd6a001b58b1",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/03bd0dfebaec70a477a85b63dd448ab2ab77db5d47b2e8fb173a26540d0862da.png"
   },
   {
     "symbol": "Wc",
