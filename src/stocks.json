@@ -49,6 +49,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/3ebdeb56c8aea4c3b03f1eb73c183d0985bc7b60a96223cd602992406a78801f.png"
   },
   {
+    "symbol": "BBAIc",
+    "name": "BigBear.ai Holdings, Inc.",
+    "address": "0xb200000000000000000000898ed394469db1845c",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/4323f682244acf604c70f6a6ce8e36add7454e811bec9d892cf0aa5392499c0c.png"
+  },
+  {
     "symbol": "BEc",
     "name": "Bloom Energy Corporation",
     "address": "0xb20000000000000000000016f9dfe862feba122b",
@@ -287,6 +294,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/f3b80cf8a85d0d70228a96cb0dad82a2df9b0a4dc1a8b394d21198a19ad8c0d4.png"
   },
   {
+    "symbol": "LUNRc",
+    "name": "Intuitive Machines, Inc.",
+    "address": "0xb200000000000000000000674e1325dbdf06b309",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/a92d5d26d846f00762fde82630fcd0a7cd934ad60a74d9fe6af5a76338baefd3.png"
+  },
+  {
     "symbol": "LYVc",
     "name": "Live Nation Entertainment, Inc.",
     "address": "0xb2000000000000000000001347ccd9e83d5bf3e0",
@@ -357,13 +371,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/40e22cff092db9b0a95196d7105afde4145299332eb5794b58562382c0ac00dc.png"
   },
   {
-    "symbol": "OKLOc",
-    "name": "Oklo Inc.",
-    "address": "0xb2000000000000000000009188edfd2fcc8cc81e",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/a0c03efbcf9c7671a4a5ba51393c7518f37bdae805369ee1f3f41fa2aef980d6.png"
-  },
-  {
     "symbol": "OPENc",
     "name": "Opendoor Technologies Inc.",
     "address": "0xb200000000000000000000259694b27bf052e7d7",
@@ -411,13 +418,6 @@
     "address": "0xb2000000000000000000008fc2a8c23cf5937b66",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/5740046bda77406610064923501b2e41cf39c3ec93256a9d981dadd61faa51c4.png"
-  },
-  {
-    "symbol": "PTONc",
-    "name": "Peloton Interactive, Inc.",
-    "address": "0xb2000000000000000000009272a491812842aa84",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/0fc4178ac460d7b526d06d03f2e5045c03de0966f23b39012fc552ec5d9a6724.png"
   },
   {
     "symbol": "PURRc",
@@ -518,6 +518,13 @@
     "icon": null
   },
   {
+    "symbol": "SIDUc",
+    "name": "Sidus Space, Inc.",
+    "address": "0xb2000000000000000000002b9ac07a0544688079",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/cd9360a94ba51977dd1e19f600b91faee0ee27843f17f03f75fe853d4e26ca4e.png"
+  },
+  {
     "symbol": "SKHYc",
     "name": "SK hynix Inc.",
     "address": "0xb200000000000000000000187f7071d6e321a7d2",
@@ -567,6 +574,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/167394b7046ca7d39d932b055788ee4ecff943d1770245a160018097a6d0d319.png"
   },
   {
+    "symbol": "SWBIc",
+    "name": "Smith & Wesson Brands, Inc.",
+    "address": "0xb2000000000000000000003fe90a64263b7f9e74",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/e6196bb22f98ffd083cf2611d68c0d5e6ff5c712f257b4195cdcbe461dbdf730.png"
+  },
+  {
     "symbol": "TSLAc",
     "name": "Tesla Inc.",
     "address": "0xb2000000000000000000001e800a7f5189430cd0",
@@ -588,25 +602,11 @@
     "icon": "https://metadata.coinbase.com/equity_icons/4441d4b1824a4a8ff41a9665a8c53fdf540ff2c3a5183a260b75d1313ac82064.png"
   },
   {
-    "symbol": "Uc",
-    "name": "Unity Software Inc.",
-    "address": "0xb200000000000000000000902f48cba1f39149f7",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/d75a8b2017e7ee6df912acb6b8db26f7a45fb5115d24982bc719085e6d484846.png"
-  },
-  {
     "symbol": "ULc",
     "name": "Unilever Plc",
     "address": "0xb200000000000000000000349ef3aa93a0897476",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/229bef72405fb1665bac441ee932a9078b297fb1bb440ec5a71893c7e8427cf9.png"
-  },
-  {
-    "symbol": "USDEc",
-    "name": "StablecoinX Inc.",
-    "address": "0xb2000000000000000000009426b660396ebcf343",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/6fb95c3e55a0ffbd2c1c8eb9f82977caefb59707770d94fb02459ae2b7794ec9.png"
   },
   {
     "symbol": "VALEc",
