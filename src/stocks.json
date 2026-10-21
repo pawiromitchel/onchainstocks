@@ -28,6 +28,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/15a01962474463e33042583faa6ddaa2ca493101d56d49337b8f7530ecf10a50.png"
   },
   {
+    "symbol": "ANFc",
+    "name": "Abercrombie & Fitch Co.",
+    "address": "0xb20000000000000000000019641b253b3e2c8a24",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/83ad1856b80683f98fec4ccf500a8e49bfc1888995619d656e96963cd89f14c5.png"
+  },
+  {
     "symbol": "APLDc",
     "name": "Applied Digital Corporation",
     "address": "0xb2000000000000000000007cbdf8fa3861e51721",
@@ -61,13 +68,6 @@
     "address": "0xb200000000000000000000747bffa52fe2c2510b",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/3ebdeb56c8aea4c3b03f1eb73c183d0985bc7b60a96223cd602992406a78801f.png"
-  },
-  {
-    "symbol": "BBAIc",
-    "name": "BigBear.ai Holdings, Inc.",
-    "address": "0xb200000000000000000000898ed394469db1845c",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/4323f682244acf604c70f6a6ce8e36add7454e811bec9d892cf0aa5392499c0c.png"
   },
   {
     "symbol": "BEc",
@@ -168,6 +168,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/039d122bd7ff5dadafcb09b5c99d41d4306d60401c417c68f0a021e3736bce02.png"
   },
   {
+    "symbol": "CMCSAc",
+    "name": "Comcast Corporation",
+    "address": "0xb2000000000000000000003bd46dbde905508b16",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/9087febf8a80e2db588a60e419bd6704465ec4eb8461884eb5a4a99ebe546c60.png"
+  },
+  {
     "symbol": "CORZc",
     "name": "Core Scientific, Inc.",
     "address": "0xb2000000000000000000001aaa9010cd65f82c5e",
@@ -187,6 +194,13 @@
     "address": "0xb200000000000000000000431a5c1e48e3b1d130",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/8ef91f9b4a3c56bad3185c9700dd534577c7726dd68feb8f6f6c6df8f2a1516c.png"
+  },
+  {
+    "symbol": "DISc",
+    "name": "The Walt Disney Company",
+    "address": "0xb2000000000000000000000bd75bf439a38bf7df",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/c43d1b3eb29d5f3285ea241e65c1efd2dab39082edf445226c8cd087451d5898.png"
   },
   {
     "symbol": "DJTc",
@@ -413,18 +427,18 @@
     "icon": "https://metadata.coinbase.com/equity_icons/37fc406ca612c0231f6aba50bdcb1e8057958a075da45d718723986b8ddffd98.png"
   },
   {
+    "symbol": "PEPc",
+    "name": "PepsiCo, Inc.",
+    "address": "0xb2000000000000000000006d1bc7faa266eb099d",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/b624ad9edab95323522eb82416cee7eb264967b4fbf1a838d95ed36d0674463a.png"
+  },
+  {
     "symbol": "PFEc",
     "name": "Pfizer Inc",
     "address": "0xb20000000000000000000018fe7ec7d6dfeeb528",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/7c4cae65ba0b98ce50c6620fe0d2e6318cf25e9c4f7799a5a45fa9effd07ff77.png"
-  },
-  {
-    "symbol": "PLAYc",
-    "name": "Dave & Buster’s Entertainment, Inc.",
-    "address": "0xb20000000000000000000087d144f2c70cd1a5f6",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/359560404a3bd67da0bc0cc776b36768ba352f0d581d989ea32e7fa667559654.png"
   },
   {
     "symbol": "PLNTc",
@@ -637,13 +651,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/4f7e35bb8f69121d81f921b472896929dde9dd00fce4976fea947b2231d8924c.png"
   },
   {
-    "symbol": "Wc",
-    "name": "Wayfair Inc.",
-    "address": "0xb20000000000000000000089bc72c3e637a02adb",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/6e69d105351da355eb4b1f74b4bfd6a0a6ee157da4333c85f2da7af093068a2b.png"
-  },
-  {
     "symbol": "WENc",
     "name": "Wendy's Co",
     "address": "0xb20000000000000000000044e3cd7a0e1028e57a",
@@ -663,13 +670,6 @@
     "address": "0xb200000000000000000000432a1d2bd864acec82",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/8c4cfd6ed235405fcfb9c315b8ad81e1d0f91fc09aa1031775906e86d405a7a3.png"
-  },
-  {
-    "symbol": "WWc",
-    "name": "WW International, Inc.",
-    "address": "0xb20000000000000000000089221e238277d52515",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/477529de304b588a517c285b9004876a92b333303f2582e17b3f7722972cd637.png"
   },
   {
     "symbol": "XXIc",
