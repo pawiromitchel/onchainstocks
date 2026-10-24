@@ -210,6 +210,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/eb816a29bbe55360569198a1a25f02299c0272504161766c10a25b3d9c58774a.png"
   },
   {
+    "symbol": "DNUTc",
+    "name": "Krispy Kreme, Inc.",
+    "address": "0xb2000000000000000000005c41b0018612629072",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/3e9c7099fb23ec147d68098e178c23f5e1063ff1b553fdaaf5c8fe5ec7812a0b.png"
+  },
+  {
     "symbol": "EATc",
     "name": "Brinker International, Inc.",
     "address": "0xb200000000000000000000808e9cca9ed8e4da61",
@@ -243,6 +250,13 @@
     "address": "0xb2000000000000000000004fc7a0c25178a0d633",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/e433bbc3151aabc39daaedbc7a2702754da69d3e55f6c0b87f081e18833a0f34.png"
+  },
+  {
+    "symbol": "FUNc",
+    "name": "Six Flags Entertainment Corporation",
+    "address": "0xb2000000000000000000000199ae48796c61909e",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/c4d4e396530ee18adc35da49f735bb3867ff3f90e0adfd265ef4fbef5b584c75.png"
   },
   {
     "symbol": "FWDIc",
@@ -329,13 +343,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/c9902520bd33cba3df2aca2baa62d1e99043fca3bb88e6387b596194c9627254.png"
   },
   {
-    "symbol": "LCIDc",
-    "name": "Lucid Group, Inc.",
-    "address": "0xb20000000000000000000081050ac3d4395df527",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/f3b80cf8a85d0d70228a96cb0dad82a2df9b0a4dc1a8b394d21198a19ad8c0d4.png"
-  },
-  {
     "symbol": "LUNRc",
     "name": "Intuitive Machines, Inc.",
     "address": "0xb200000000000000000000674e1325dbdf06b309",
@@ -392,18 +399,18 @@
     "icon": "https://metadata.coinbase.com/equity_icons/a439a52a14be6becd7b40d129b295d675b9cde07a4014813e367ebd223ce4c1a.png"
   },
   {
-    "symbol": "NOWc",
-    "name": "ServiceNow, Inc.",
-    "address": "0xb20000000000000000000082cd2c7801305808df",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/441e542d8b289310e00576923841871bf3df702907b6a5be7ffa19b58e63caf7.png"
-  },
-  {
     "symbol": "NVDAc",
     "name": "NVIDIA Corporation",
     "address": "0xb20000000000000000000078ee7ce2fe4908108c",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/1fee9b7a44e800d438dd9d96c3283e05784c925c2c871a48ff735950740b551a.png"
+  },
+  {
+    "symbol": "NVTSc",
+    "name": "Navitas Semiconductor Corporation",
+    "address": "0xb2000000000000000000002a0ec8f8861ce98983",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/9c628265e84c62facf7b0449d7705d1d40eb54dc3f81e4301934229242c81358.png"
   },
   {
     "symbol": "OPADc",
@@ -628,13 +635,6 @@
     "address": "0xb2000000000000000000001e800a7f5189430cd0",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/a3b67028295d0e9fa3182c867b8a9afed5ebcbd8c012de3a46e160ae5e490980.png"
-  },
-  {
-    "symbol": "UAAc",
-    "name": "Under Armour, Inc.",
-    "address": "0xb200000000000000000000879a74c76c73a27d71",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/4441d4b1824a4a8ff41a9665a8c53fdf540ff2c3a5183a260b75d1313ac82064.png"
   },
   {
     "symbol": "ULc",
