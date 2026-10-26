@@ -1,10 +1,24 @@
 [
   {
+    "symbol": "AALc",
+    "name": "American Airlines Group Inc.",
+    "address": "0xb2000000000000000000004feb8d277dd14b08bb",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/42a66b904b55a1f2c7e44d616f89fd7a1cd7fbe1d67c6678af9245110d4ae9b0.png"
+  },
+  {
     "symbol": "ABNBc",
     "name": "Airbnb, Inc.",
     "address": "0xb200000000000000000000045beafafbe0dc7664",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/de9dc52e1592e3626085a7eea3c0463c70e3d746f4fca9da58a7e46175b30882.png"
+  },
+  {
+    "symbol": "AEHRc",
+    "name": "Aehr Test Systems",
+    "address": "0xb2000000000000000000001775bd17f2289de527",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/692fc9bebd2c0b43e0f910aa8778a40ca9dd641fda78807f2ad0f7b68edc3eb7.png"
   },
   {
     "symbol": "AEOc",
@@ -33,13 +47,6 @@
     "address": "0xb20000000000000000000019641b253b3e2c8a24",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/83ad1856b80683f98fec4ccf500a8e49bfc1888995619d656e96963cd89f14c5.png"
-  },
-  {
-    "symbol": "APLDc",
-    "name": "Applied Digital Corporation",
-    "address": "0xb2000000000000000000007cbdf8fa3861e51721",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/9a09558f5c7288e2476322392faad6c88052aec6af7a156dff26ff38c259e543.png"
   },
   {
     "symbol": "APPc",
@@ -119,11 +126,11 @@
     "icon": "https://metadata.coinbase.com/equity_icons/d3efcf287c7ec148d9b2bc5c0ebd2b4156ba08f32a7f2f30014ddb9c64bd9470.png"
   },
   {
-    "symbol": "BYNDc",
-    "name": "Beyond Meat, Inc.",
-    "address": "0xb200000000000000000000801830b13b8e493423",
+    "symbol": "BXc",
+    "name": "Blackstone Inc.",
+    "address": "0xb200000000000000000000645c1ec509e4261682",
     "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/7d9e400a631483d7bbfb4a71c5714042f56c2d9f14687339bc9fa41beb2e95b9.png"
+    "icon": "https://metadata.coinbase.com/equity_icons/3dd792de3c6e67c16d1e688f9d6db11b574d1bfd77b7872b6a56eca1329fdc01.png"
   },
   {
     "symbol": "CAVAc",
@@ -189,6 +196,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/f217835f2637739f460cc9335a59ec96011c1b9510a40cee3243aeef50eb7a45.png"
   },
   {
+    "symbol": "CRMc",
+    "name": "Salesforce, Inc.",
+    "address": "0xb2000000000000000000006432a3a7991e718dbb",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/abb12b33ee5b2b4aa9be8ef640029e6da18ce05092c0a52f251aad0024d34c91.png"
+  },
+  {
     "symbol": "CROXc",
     "name": "Crocs, Inc.",
     "address": "0xb200000000000000000000431a5c1e48e3b1d130",
@@ -217,13 +231,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/3e9c7099fb23ec147d68098e178c23f5e1063ff1b553fdaaf5c8fe5ec7812a0b.png"
   },
   {
-    "symbol": "EATc",
-    "name": "Brinker International, Inc.",
-    "address": "0xb200000000000000000000808e9cca9ed8e4da61",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/cc66204d35898ec0f32c2079df846a14054150c4c72942754a04d56388ab6d6c.png"
-  },
-  {
     "symbol": "ELFc",
     "name": "e.l.f. Beauty, Inc.",
     "address": "0xb2000000000000000000006b7f6966ee0453e251",
@@ -231,18 +238,18 @@
     "icon": "https://metadata.coinbase.com/equity_icons/9d61ba02eb2c7b9998871d3e28c5a6016da42cee433ad2890666d53d6c3d1792.png"
   },
   {
-    "symbol": "ENPHc",
-    "name": "Enphase Energy, Inc.",
-    "address": "0xb2000000000000000000007a90b2d9ed101035a8",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/220762aafa4e62d4fc771a4555da809ee2519106a479f56a05f70b7022b95e73.png"
-  },
-  {
     "symbol": "FIGRc",
     "name": "Figure Technology Solutions, Inc.",
     "address": "0xb2000000000000000000005a41bef59807119850",
     "decimals": 8,
     "icon": null
+  },
+  {
+    "symbol": "FLNCc",
+    "name": "Fluence Energy, Inc.",
+    "address": "0xb200000000000000000000695b10dd3e1b0ea070",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/6af31fa1fe4629ac1795ab9319574393a7ce2f7d2740c4b95f5be3b219a2a7de.png"
   },
   {
     "symbol": "FLYc",
@@ -455,13 +462,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/945242a0379fafaf5b90854a26e21a8472432cf49771c738bf7a09c97e4cfde4.png"
   },
   {
-    "symbol": "PLTRc",
-    "name": "Palantir Technologies Inc.",
-    "address": "0xb2000000000000000000007d16372840df4dabbe",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/cb8ee560fcd2d52473592e8dbbe3ab4f3e75f4732405a1acbfff8dfc652dd602.png"
-  },
-  {
     "symbol": "PURRc",
     "name": "Hyperliquid Strategies Inc",
     "address": "0xb20000000000000000000065ca0f772a5502e976",
@@ -595,6 +595,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/495de6bc9902690826d533b9506494890f59d611d10f04231c00936f659bb0cb.png"
   },
   {
+    "symbol": "SNOWc",
+    "name": "Snowflake Inc.",
+    "address": "0xb2000000000000000000004acdc9a922fcfbcc7f",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/1914120c61e2fdeb8f1202559f0ea0fbdd16011d60ff9183c9bbad19a72e0ab4.png"
+  },
+  {
     "symbol": "SOFIc",
     "name": "SoFi Technologies, Inc.",
     "address": "0xb2000000000000000000003ef37a7c863dc1482a",
@@ -607,13 +614,6 @@
     "address": "0xb2000000000000000000002137743d4a01fe4e88",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/9fd38760895467cb7177810563240bc13c9ba1b4727efb4a43ed6aa3c354a7b5.png"
-  },
-  {
-    "symbol": "SPCXc",
-    "name": "Space Exploration Technologies Corp.",
-    "address": "0xb2000000000000000000007b9fcbd005511acbd5",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/79fa65beabbe27c7b84a38b8f67a492793a0c203a5312c8feddc23e4b7c66b79.png"
   },
   {
     "symbol": "STZc",
