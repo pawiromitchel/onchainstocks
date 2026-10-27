@@ -287,13 +287,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/5552ece21c7080f00f1e554dc82e226841ae65e625622eaa00a2ca847e22df2b.png"
   },
   {
-    "symbol": "GMEc",
-    "name": "GameStop Corp.",
-    "address": "0xb2000000000000000000007790ed6e48e06ed935",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/3c421afc3407038dbc631169eb67566659e55a70a932156d64c2f863a1119a58.png"
-  },
-  {
     "symbol": "GOOGLc",
     "name": "Alphabet Inc.",
     "address": "0xb2000000000000000000002d0ba3164cc74f58b7",
@@ -308,6 +301,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/c5c723e9033c85cb8ee016a0674a3e1bdc0b2d3027a86aeb8108895479f22a3b.png"
   },
   {
+    "symbol": "HOGc",
+    "name": "Harley-Davidson, Inc.",
+    "address": "0xb2000000000000000000001faa7fa5ef4184ede5",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/9a90166a0114e6ba5e5c1d040a223f2963960a8f85031b6c813178e9ed172d20.png"
+  },
+  {
     "symbol": "HTZc",
     "name": "Hertz Global Holdings, Inc.",
     "address": "0xb2000000000000000000002601c5c94f435da168",
@@ -320,13 +320,6 @@
     "address": "0xb2000000000000000000006ee1c139a723872e09",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/6e5c70af1553b6d63ceba6dd136c7851ab399d2f3b9a7a7311d7b03230a36d3c.png"
-  },
-  {
-    "symbol": "IBRXc",
-    "name": "ImmunityBio, Inc.",
-    "address": "0xb20000000000000000000077d13d6c79b6c11c5a",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/961698841f64be9b00b74675f116d9b348995b0f2b840cb6f9e007c2128a9fc6.png"
   },
   {
     "symbol": "INTCc",
@@ -378,6 +371,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/496024423dd795f8b547ffa0668f12a1e6bf09af247534754546a1a6661c7969.png"
   },
   {
+    "symbol": "MVISc",
+    "name": "MicroVision, Inc.",
+    "address": "0xb2000000000000000000001bcf8e5022d7f61919",
+    "decimals": 8,
+    "icon": null
+  },
+  {
     "symbol": "NFLXc",
     "name": "Netflix Inc",
     "address": "0xb20000000000000000000058b8c947e44011dfe6",
@@ -404,13 +404,6 @@
     "address": "0xb2000000000000000000005ac674f707e357409c",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/a439a52a14be6becd7b40d129b295d675b9cde07a4014813e367ebd223ce4c1a.png"
-  },
-  {
-    "symbol": "NVDAc",
-    "name": "NVIDIA Corporation",
-    "address": "0xb20000000000000000000078ee7ce2fe4908108c",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/1fee9b7a44e800d438dd9d96c3283e05784c925c2c871a48ff735950740b551a.png"
   },
   {
     "symbol": "NVTSc",
@@ -642,6 +635,13 @@
     "address": "0xb200000000000000000000349ef3aa93a0897476",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/229bef72405fb1665bac441ee932a9078b297fb1bb440ec5a71893c7e8427cf9.png"
+  },
+  {
+    "symbol": "UMACc",
+    "name": "Unusual Machines, Inc.",
+    "address": "0xb2000000000000000000003ae0817c304acbb1de",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/503e56c9374a7f1d39e29bd1a31592c94066acc4f05327b1e2d5be484293a517.png"
   },
   {
     "symbol": "VALEc",
