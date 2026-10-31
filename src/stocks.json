@@ -14,6 +14,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/de9dc52e1592e3626085a7eea3c0463c70e3d746f4fca9da58a7e46175b30882.png"
   },
   {
+    "symbol": "ADBEc",
+    "name": "Adobe Inc.",
+    "address": "0xb20000000000000000000034533ed3961f222cd4",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/c0935c5a81483dfd55f9b6892d0167554d5add886431cbc61e7eb0b8ff8ad49e.png"
+  },
+  {
     "symbol": "AEHRc",
     "name": "Aehr Test Systems",
     "address": "0xb2000000000000000000001775bd17f2289de527",
@@ -28,11 +35,11 @@
     "icon": "https://metadata.coinbase.com/equity_icons/bf1757c5584a85325327533f7bbcc617efd47d2f20f8baf169c069a3265d87ca.png"
   },
   {
-    "symbol": "AIc",
-    "name": "C3.ai, Inc.",
-    "address": "0xb20000000000000000000072b5c2b2d18ee8a2a5",
+    "symbol": "ALABc",
+    "name": "Astera Labs, Inc.",
+    "address": "0xb200000000000000000000476c5a355abe1a2794",
     "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/74b8e85b0a872f54af0eb24ca000a896d8f533bd71b44c2641cdcc617ce4ee25.png"
+    "icon": "https://metadata.coinbase.com/equity_icons/3aa9f6c894d4c5d1747e6b979a6835d1e5e01ea3a40131dd6d3d07229a4620bd.png"
   },
   {
     "symbol": "AMDc",
@@ -40,6 +47,13 @@
     "address": "0xb2000000000000000000000d8ce462e99ee7a47b",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/15a01962474463e33042583faa6ddaa2ca493101d56d49337b8f7530ecf10a50.png"
+  },
+  {
+    "symbol": "AMGNc",
+    "name": "Amgen Inc.",
+    "address": "0xb20000000000000000000049d38a179c97e33381",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/86245049809cb3a8bac47ee08d19e71aa205e5bfc61e896b15773d07c97fde52.png"
   },
   {
     "symbol": "ANFc",
@@ -68,13 +82,6 @@
     "address": "0xb2000000000000000000004cc3e96ceb78541d33",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/6f948c36b346f9bd0face90badfd77372fc4faf2dc0ff1440669cb5d65520982.png"
-  },
-  {
-    "symbol": "BALLc",
-    "name": "Ball Corporation",
-    "address": "0xb200000000000000000000747bffa52fe2c2510b",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/3ebdeb56c8aea4c3b03f1eb73c183d0985bc7b60a96223cd602992406a78801f.png"
   },
   {
     "symbol": "BEc",
@@ -126,11 +133,11 @@
     "icon": "https://metadata.coinbase.com/equity_icons/d3efcf287c7ec148d9b2bc5c0ebd2b4156ba08f32a7f2f30014ddb9c64bd9470.png"
   },
   {
-    "symbol": "BXc",
-    "name": "Blackstone Inc.",
-    "address": "0xb200000000000000000000645c1ec509e4261682",
+    "symbol": "CATc",
+    "name": "Caterpillar Inc.",
+    "address": "0xb2000000000000000000005de7f2e0aca219c070",
     "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/3dd792de3c6e67c16d1e688f9d6db11b574d1bfd77b7872b6a56eca1329fdc01.png"
+    "icon": "https://metadata.coinbase.com/equity_icons/29e5c4f697c6bf98f3c2c35f3076036b7d23b1c4535d2c24051c9f080d2ba321.png"
   },
   {
     "symbol": "CAVAc",
@@ -138,13 +145,6 @@
     "address": "0xb2000000000000000000001b6e407239eb31edcf",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/df682d9b11927d20f3da75fe66373422d9144cf66d5dce5c1c1ec555a24662c4.png"
-  },
-  {
-    "symbol": "CBRSc",
-    "name": "Cerebras Systems Inc.",
-    "address": "0xb200000000000000000000720133eedf525f93e2",
-    "decimals": 8,
-    "icon": null
   },
   {
     "symbol": "CELHc",
@@ -159,13 +159,6 @@
     "address": "0xb2000000000000000000001ca01a48688ec7d3cc",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/0d27ca1ffe47d8140707428ca230b97a23a7019232864fe74fd7537208fe3780.png"
-  },
-  {
-    "symbol": "CIFRc",
-    "name": "Cipher Digital Inc.",
-    "address": "0xb200000000000000000000690275843b6e246286",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/921f1d48585625dde39570f4e406d9f019e1189be2b92dae5be6a7b7ec540212.png"
   },
   {
     "symbol": "CLOVc",
@@ -196,18 +189,32 @@
     "icon": "https://metadata.coinbase.com/equity_icons/f217835f2637739f460cc9335a59ec96011c1b9510a40cee3243aeef50eb7a45.png"
   },
   {
-    "symbol": "CRMc",
-    "name": "Salesforce, Inc.",
-    "address": "0xb2000000000000000000006432a3a7991e718dbb",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/abb12b33ee5b2b4aa9be8ef640029e6da18ce05092c0a52f251aad0024d34c91.png"
-  },
-  {
     "symbol": "CROXc",
     "name": "Crocs, Inc.",
     "address": "0xb200000000000000000000431a5c1e48e3b1d130",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/8ef91f9b4a3c56bad3185c9700dd534577c7726dd68feb8f6f6c6df8f2a1516c.png"
+  },
+  {
+    "symbol": "CSCOc",
+    "name": "Cisco Systems, Inc.",
+    "address": "0xb20000000000000000000015776ea82655c4f034",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/0f4d7863558deaa2c496db9f2c732789144a4bb370968767e78c798be85e3acf.png"
+  },
+  {
+    "symbol": "CVXc",
+    "name": "Chevron Corporation",
+    "address": "0xb2000000000000000000003bf350e420c13e431a",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/c43e0a102e5e04bd984eb338302e84824abcbb9052b9ccef6cd83756fb93dbe9.png"
+  },
+  {
+    "symbol": "DDOGc",
+    "name": "Datadog, Inc.",
+    "address": "0xb2000000000000000000002c99976e240ed773e6",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/b31b679607938fc4db70bceaa7ddf512ca60e2701808bf9947415c36563d40af.png"
   },
   {
     "symbol": "DISc",
@@ -231,25 +238,11 @@
     "icon": "https://metadata.coinbase.com/equity_icons/3e9c7099fb23ec147d68098e178c23f5e1063ff1b553fdaaf5c8fe5ec7812a0b.png"
   },
   {
-    "symbol": "ELFc",
-    "name": "e.l.f. Beauty, Inc.",
-    "address": "0xb2000000000000000000006b7f6966ee0453e251",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/9d61ba02eb2c7b9998871d3e28c5a6016da42cee433ad2890666d53d6c3d1792.png"
-  },
-  {
     "symbol": "FIGRc",
     "name": "Figure Technology Solutions, Inc.",
     "address": "0xb2000000000000000000005a41bef59807119850",
     "decimals": 8,
     "icon": null
-  },
-  {
-    "symbol": "FLNCc",
-    "name": "Fluence Energy, Inc.",
-    "address": "0xb200000000000000000000695b10dd3e1b0ea070",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/6af31fa1fe4629ac1795ab9319574393a7ce2f7d2740c4b95f5be3b219a2a7de.png"
   },
   {
     "symbol": "FLYc",
@@ -280,13 +273,6 @@
     "icon": null
   },
   {
-    "symbol": "GLXYc",
-    "name": "Galaxy Digital Inc.",
-    "address": "0xb2000000000000000000006de7888c3fffd803ac",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/5552ece21c7080f00f1e554dc82e226841ae65e625622eaa00a2ca847e22df2b.png"
-  },
-  {
     "symbol": "GOOGLc",
     "name": "Alphabet Inc.",
     "address": "0xb2000000000000000000002d0ba3164cc74f58b7",
@@ -315,13 +301,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/b396ed85244f93f0b85fb135c2e5090638f65393b49854637e168d77d2180020.png"
   },
   {
-    "symbol": "HUTc",
-    "name": "Hut 8 Corp.",
-    "address": "0xb2000000000000000000006ee1c139a723872e09",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/6e5c70af1553b6d63ceba6dd136c7851ab399d2f3b9a7a7311d7b03230a36d3c.png"
-  },
-  {
     "symbol": "INTCc",
     "name": "Intel Corporation",
     "address": "0xb2000000000000000000004aff16039ba04bdfbc",
@@ -343,11 +322,11 @@
     "icon": "https://metadata.coinbase.com/equity_icons/c9902520bd33cba3df2aca2baa62d1e99043fca3bb88e6387b596194c9627254.png"
   },
   {
-    "symbol": "LUNRc",
-    "name": "Intuitive Machines, Inc.",
-    "address": "0xb200000000000000000000674e1325dbdf06b309",
+    "symbol": "LRCXc",
+    "name": "Lam Research Corporation",
+    "address": "0xb20000000000000000000034975347ff1848aab9",
     "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/a92d5d26d846f00762fde82630fcd0a7cd934ad60a74d9fe6af5a76338baefd3.png"
+    "icon": "https://metadata.coinbase.com/equity_icons/4a97b415ba6301739ab9a75aab688590cb0dca974d847456faa326b277d30675.png"
   },
   {
     "symbol": "LYVc",
@@ -362,6 +341,20 @@
     "address": "0xb2000000000000000000005bcde0a6926919fef9",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/607d84c3f2f7dc59fbb9bcf3b497700136c9032f3ffea3887867040cbb10a919.png"
+  },
+  {
+    "symbol": "MPc",
+    "name": "MP Materials Corp.",
+    "address": "0xb2000000000000000000003958003d801724f9d3",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/a9692ca246683314dfc7a2b4e05c8b5c0a630d9075aaf3e8fa541873e718847a.png"
+  },
+  {
+    "symbol": "MRKc",
+    "name": "Merck & Co., Inc.",
+    "address": "0xb200000000000000000000241fe94fe97fcbf034",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/65c8a28b36993cad3be0db3fdcbf28d3ba02518d06420e2844795af154d8346f.png"
   },
   {
     "symbol": "MSTRc",
@@ -392,13 +385,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/ac665f1d791de17c3ec442c3b84586056348497737b452544300975adf84e5e4.png"
   },
   {
-    "symbol": "NNEc",
-    "name": "NANO Nuclear Energy Inc.",
-    "address": "0xb20000000000000000000069d694d397b9388dac",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/5919fbe58b93af4d268628923e1ebe093f2b620976d6a0f763561dd2e67246c6.png"
-  },
-  {
     "symbol": "NOKc",
     "name": "Nokia Corporation",
     "address": "0xb2000000000000000000005ac674f707e357409c",
@@ -411,6 +397,13 @@
     "address": "0xb2000000000000000000002a0ec8f8861ce98983",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/9c628265e84c62facf7b0449d7705d1d40eb54dc3f81e4301934229242c81358.png"
+  },
+  {
+    "symbol": "OKTAc",
+    "name": "Okta, Inc.",
+    "address": "0xb2000000000000000000002570652530a5e0f771",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/afc4db375bf99fd3f7a67d2a9ef7247546c849f3b2e752f4b9715ae832d263d4.png"
   },
   {
     "symbol": "OPADc",
@@ -434,11 +427,11 @@
     "icon": "https://metadata.coinbase.com/equity_icons/37fc406ca612c0231f6aba50bdcb1e8057958a075da45d718723986b8ddffd98.png"
   },
   {
-    "symbol": "PEPc",
-    "name": "PepsiCo, Inc.",
-    "address": "0xb2000000000000000000006d1bc7faa266eb099d",
+    "symbol": "OUSTc",
+    "name": "Ouster, Inc.",
+    "address": "0xb200000000000000000000314b9f5f580168766a",
     "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/b624ad9edab95323522eb82416cee7eb264967b4fbf1a838d95ed36d0674463a.png"
+    "icon": "https://metadata.coinbase.com/equity_icons/415b579e4e0252bb85277c3a6e204f4dca9a2c407db8d4e7b0521704d718147e.png"
   },
   {
     "symbol": "PFEc",
@@ -455,13 +448,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/945242a0379fafaf5b90854a26e21a8472432cf49771c738bf7a09c97e4cfde4.png"
   },
   {
-    "symbol": "PURRc",
-    "name": "Hyperliquid Strategies Inc",
-    "address": "0xb20000000000000000000065ca0f772a5502e976",
-    "decimals": 8,
-    "icon": null
-  },
-  {
     "symbol": "PYPLc",
     "name": "PayPal Holdings, Inc.",
     "address": "0xb200000000000000000000450ad3abe5d4846c6e",
@@ -469,11 +455,18 @@
     "icon": "https://metadata.coinbase.com/equity_icons/b0023876e88d8c35430d618a5008e423023187143d62f22977c95a29ae59f276.png"
   },
   {
-    "symbol": "PZZAc",
-    "name": "Papa John’s International, Inc.",
-    "address": "0xb20000000000000000000068987dacde1db79cd4",
+    "symbol": "QCOMc",
+    "name": "Qualcomm Incorporated",
+    "address": "0xb2000000000000000000005672d78eff30d24665",
     "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/0a00d14b4caa708d6beacbeaa6e3708e495f98721c182169a80577684e36649f.png"
+    "icon": "https://metadata.coinbase.com/equity_icons/0018b31e57120d7044a97ae6e4d5a62eb76db4f9bef4dc658706e7198c4d47e5.png"
+  },
+  {
+    "symbol": "QNTc",
+    "name": "Quantinuum Inc.",
+    "address": "0xb2000000000000000000003963c3beaa3eba9bfc",
+    "decimals": 8,
+    "icon": null
   },
   {
     "symbol": "RBLXc",
@@ -481,13 +474,6 @@
     "address": "0xb2000000000000000000005bd7ae89b9e6189bb5",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/3cdc2d066a939dfe182dabb2e3093b645af837e60afd95ca12fd3cdd9c226f17.png"
-  },
-  {
-    "symbol": "RDDTc",
-    "name": "Reddit, Inc.",
-    "address": "0xb20000000000000000000066242d4067724cb7a1",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/b10e490495d7918a3b6ae1281f416cb608a4642ba05ec442ed14546b40c8936d.png"
   },
   {
     "symbol": "RIVNc",
@@ -581,6 +567,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/bb5b6db40535a12593bc151a8df38fbe094c8fa95ed5f52ba03ab64b7be7cbbb.png"
   },
   {
+    "symbol": "SNAPc",
+    "name": "Snap Inc.",
+    "address": "0xb2000000000000000000003f265ab1f74dd89ac0",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/37740040f93946f33ca80a4a0b99e221ae42d2b01c05372a1fc3bda78711567c.png"
+  },
+  {
     "symbol": "SNDKc",
     "name": "Sandisk Corporation",
     "address": "0xb200000000000000000000397293cb8cda9a10c5",
@@ -623,6 +616,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/e6196bb22f98ffd083cf2611d68c0d5e6ff5c712f257b4195cdcbe461dbdf730.png"
   },
   {
+    "symbol": "TEAMc",
+    "name": "Atlassian Corporation",
+    "address": "0xb2000000000000000000004217b9b4f6f6acb7b8",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/255e210758eec13701887bebedb4bfb48b58dd8ebf83f77a2b7c6cb0b41a2433.png"
+  },
+  {
     "symbol": "TSLAc",
     "name": "Tesla Inc.",
     "address": "0xb2000000000000000000001e800a7f5189430cd0",
@@ -644,11 +644,11 @@
     "icon": "https://metadata.coinbase.com/equity_icons/503e56c9374a7f1d39e29bd1a31592c94066acc4f05327b1e2d5be484293a517.png"
   },
   {
-    "symbol": "VALEc",
-    "name": "Vale S.A.",
-    "address": "0xb20000000000000000000063376b142c0764b489",
+    "symbol": "Vc",
+    "name": "Visa Inc.",
+    "address": "0xb20000000000000000000054b11fd279a4f7d4ef",
     "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/4f7e35bb8f69121d81f921b472896929dde9dd00fce4976fea947b2231d8924c.png"
+    "icon": "https://metadata.coinbase.com/equity_icons/49f7bab346a0cad611333003a153a6fbbaa8f44f99f1aef621e513ceb208b855.png"
   },
   {
     "symbol": "WENc",
@@ -679,13 +679,6 @@
     "icon": null
   },
   {
-    "symbol": "XYZc",
-    "name": "Block, Inc.",
-    "address": "0xb20000000000000000000067c8c151f24e1c9924",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/de769be1d4653ab0e397593eec747f0decd4b3181e351f40fe2942ab451a07cc.png"
-  },
-  {
     "symbol": "YETIc",
     "name": "YETI Holdings, Inc.",
     "address": "0xb200000000000000000000613c15f118df2b189b",
@@ -698,5 +691,12 @@
     "address": "0xb2000000000000000000005c8324136de0f4134a",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/a36f63c2b7418c5f939a55838890517e8494a7ca8b625590072ffc14c2b41544.png"
+  },
+  {
+    "symbol": "ZMc",
+    "name": "Zoom Communications, Inc.",
+    "address": "0xb2000000000000000000000e63b7b0b6bc5b9213",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/7543a0e86f21fc180c31e97d9dfe7cd73666242cd0e3db45adb894bb3b5ec2b2.png"
   }
 ]
