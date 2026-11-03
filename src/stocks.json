@@ -95,7 +95,7 @@
     "name": "Smartbird, Inc.",
     "address": "0xb200000000000000000000535fe96f18204bfd96",
     "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/bce21de071543a4d49e02c85f917b61557698dd63982c126c29ee15e1ec8d8d3.png"
+    "icon": null
   },
   {
     "symbol": "BJc",
@@ -109,7 +109,7 @@
     "name": "Blink Charging Co.",
     "address": "0xb2000000000000000000004ec7c19212979672f9",
     "decimals": 8,
-    "icon": null
+    "icon": "https://metadata.coinbase.com/equity_icons/6ffcd33c29ae4900089ff73738913fd469edaf50a9e36fcd82c031687434850b.png"
   },
   {
     "symbol": "BOOTc",
@@ -410,7 +410,7 @@
     "name": "Offerpad Solutions Inc.",
     "address": "0xb2000000000000000000003086b1355bd43e25da",
     "decimals": 8,
-    "icon": null
+    "icon": "https://metadata.coinbase.com/equity_icons/150cf88f3d974ac481c25037fa7864998d8f3b65b6c736e3da6f19effd9ae6eb.png"
   },
   {
     "symbol": "OPENc",
