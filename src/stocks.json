@@ -1,12 +1,5 @@
 [
   {
-    "symbol": "AALc",
-    "name": "American Airlines Group Inc.",
-    "address": "0xb2000000000000000000004feb8d277dd14b08bb",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/42a66b904b55a1f2c7e44d616f89fd7a1cd7fbe1d67c6678af9245110d4ae9b0.png"
-  },
-  {
     "symbol": "ABNBc",
     "name": "Airbnb, Inc.",
     "address": "0xb200000000000000000000045beafafbe0dc7664",
@@ -103,13 +96,6 @@
     "address": "0xb20000000000000000000016f9dfe862feba122b",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/d70bb7fb735dcde077a73666df4739c3ef2c8eb23033fd6dc863f1693e5fa80b.png"
-  },
-  {
-    "symbol": "BIRDc",
-    "name": "Smartbird, Inc.",
-    "address": "0xb200000000000000000000535fe96f18204bfd96",
-    "decimals": 8,
-    "icon": null
   },
   {
     "symbol": "BJc",
@@ -224,13 +210,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/b31b679607938fc4db70bceaa7ddf512ca60e2701808bf9947415c36563d40af.png"
   },
   {
-    "symbol": "DELLc",
-    "name": "Dell Technologies Inc.",
-    "address": "0xb20000000000000000000050fe6d1ef35b02e8fd",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/fcf604783f4dbaae3f3ff765f8cf36714812d03aca9aa0d18e4b003cf60a28cb.png"
-  },
-  {
     "symbol": "DISc",
     "name": "The Walt Disney Company",
     "address": "0xb2000000000000000000000bd75bf439a38bf7df",
@@ -250,13 +229,6 @@
     "address": "0xb2000000000000000000003fa80315bfd87efed8",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/a11a12aec7fb79bad068920259f0ebc9e6e790a64cb7f7b9d5359508980e235a.png"
-  },
-  {
-    "symbol": "FLYc",
-    "name": "Firefly Aerospace Inc.",
-    "address": "0xb2000000000000000000004fc7a0c25178a0d633",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/e433bbc3151aabc39daaedbc7a2702754da69d3e55f6c0b87f081e18833a0f34.png"
   },
   {
     "symbol": "FUNc",
@@ -315,6 +287,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/4b262dd99a0fc00aebd8fd124346301a7aaa701165c3c178e6bb90636989a694.png"
   },
   {
+    "symbol": "ITc",
+    "name": "Gartner, Inc.",
+    "address": "0xb20000000000000000000042cbbae483635c3774",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/2ba4e60cc00c9d299a2c21bb99a2aacbfe60f6bcabb860bcebb67abe0e48a6b8.png"
+  },
+  {
     "symbol": "KSSc",
     "name": "Kohl's Corporation",
     "address": "0xb200000000000000000000105a1f43ff3605c5de",
@@ -327,6 +306,13 @@
     "address": "0xb20000000000000000000034975347ff1848aab9",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/4a97b415ba6301739ab9a75aab688590cb0dca974d847456faa326b277d30675.png"
+  },
+  {
+    "symbol": "LYFTc",
+    "name": "Lyft, Inc.",
+    "address": "0xb20000000000000000000005717baa337022c782",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/4a98158f65a436fb2aa84543576ef1e3fc59c8d546df145d379697b1f0850d40.png"
   },
   {
     "symbol": "LYVc",
@@ -361,7 +347,14 @@
     "name": "MicroVision, Inc.",
     "address": "0xb2000000000000000000001bcf8e5022d7f61919",
     "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/66bf0677e7614a014a39453ea2368b09b823f15b00d8bdfd414b36e0ee62b710.png"
+    "icon": null
+  },
+  {
+    "symbol": "NEMc",
+    "name": "Newmont Corporation",
+    "address": "0xb2000000000000000000003aa0410688baf4da88",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/1d110728316b75494709eb2df7c483b9f77036e869f814f46c6218e68648406e.png"
   },
   {
     "symbol": "NIOc",
@@ -455,6 +448,13 @@
     "icon": null
   },
   {
+    "symbol": "QXOc",
+    "name": "QXO, Inc.",
+    "address": "0xb2000000000000000000000cd31253817b36f88a",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/76e8c033699c82738072f1729a370ac22680edf24524a7d25fa91e18eacebca9.png"
+  },
+  {
     "symbol": "RIVNc",
     "name": "Rivian Automotive, Inc.",
     "address": "0xb2000000000000000000003e4249c65bd6c037d9",
@@ -495,13 +495,6 @@
     "address": "0xb2000000000000000000000f28146eb28ea2835b",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/fda34b956229ed86b171f0f342c5d820d58fa712e0559f5243793ef98e7dfbe4.png"
-  },
-  {
-    "symbol": "RXRXc",
-    "name": "Recursion Pharmaceuticals, Inc.",
-    "address": "0xb200000000000000000000501ef81f911eb57656",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/ea5b83bd26a2df52c87981a56d631ec90fd56b03f8ea0a99025d0aac3a973e4a.png"
   },
   {
     "symbol": "SANc",
@@ -551,6 +544,13 @@
     "address": "0xb200000000000000000000187f7071d6e321a7d2",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/d60ca6d297c51ce1dbab713c3ea1fd66f0ff0c79f48b8958521ec7b01f67cabe.png"
+  },
+  {
+    "symbol": "SLSc",
+    "name": "SELLAS Life Sciences Group, Inc.",
+    "address": "0xb2000000000000000000000c431e2a7c0ce7ea31",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/1af1d6e89cca430c7092160d11a522aaab992c43c54344b2d43f034fc8f9fa27.png"
   },
   {
     "symbol": "SMPLc",
@@ -658,11 +658,11 @@
     "icon": "https://metadata.coinbase.com/equity_icons/503e56c9374a7f1d39e29bd1a31592c94066acc4f05327b1e2d5be484293a517.png"
   },
   {
-    "symbol": "VPGc",
-    "name": "Vishay Precision Group, Inc.",
-    "address": "0xb20000000000000000000051b531471096c5caf6",
+    "symbol": "VOYGc",
+    "name": "Voyager Technologies, Inc.",
+    "address": "0xb2000000000000000000004f13a2441d3c82ee54",
     "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/df2d3a80451828ce6c1abe765e165a54d9afce2cf6ef5fc2ad356bd190030194.png"
+    "icon": null
   },
   {
     "symbol": "WENc",
