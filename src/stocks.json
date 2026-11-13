@@ -49,13 +49,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/15a01962474463e33042583faa6ddaa2ca493101d56d49337b8f7530ecf10a50.png"
   },
   {
-    "symbol": "AMGNc",
-    "name": "Amgen Inc.",
-    "address": "0xb20000000000000000000049d38a179c97e33381",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/86245049809cb3a8bac47ee08d19e71aa205e5bfc61e896b15773d07c97fde52.png"
-  },
-  {
     "symbol": "AMKRc",
     "name": "Amkor Technology, Inc.",
     "address": "0xb2000000000000000000002c8b0e3d7ff26f81a0",
@@ -168,6 +161,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/ecdd72d1af9258e50008ab2a4f8bb4e814b4e0fa9e5a00ddcbe2d6e2dbf6828c.png"
   },
   {
+    "symbol": "CPNGc",
+    "name": "Coupang, Inc.",
+    "address": "0xb20000000000000000000038e9982fe875b7e066",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/411512121435b80c1d71aff33f6071895a06ccae03529da7005b3f962e488a68.png"
+  },
+  {
     "symbol": "CRCLc",
     "name": "Circle Internet Group Inc.",
     "address": "0xb20000000000000000000019f6e7c675b73c2e4d",
@@ -259,6 +259,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/0e80e31df40f7c42b49a3c7f6d23c6351625d73f235aeb69006ddee9221702b0.png"
   },
   {
+    "symbol": "GRPNc",
+    "name": "Groupon, Inc.",
+    "address": "0xb2000000000000000000004637e5a787885c720d",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/ca2b40fc9f26b2d8f53ce4d16511081f10b3988b04d875f9516aefcc977c0988.png"
+  },
+  {
     "symbol": "HIMSc",
     "name": "Hims & Hers Health, Inc.",
     "address": "0xb20000000000000000000043a599976181bcf336",
@@ -334,13 +341,6 @@
     "address": "0xb200000000000000000000241fe94fe97fcbf034",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/65c8a28b36993cad3be0db3fdcbf28d3ba02518d06420e2844795af154d8346f.png"
-  },
-  {
-    "symbol": "MSTRc",
-    "name": "Strategy Inc.",
-    "address": "0xb2000000000000000000004884b426556b92883d",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/496024423dd795f8b547ffa0668f12a1e6bf09af247534754546a1a6661c7969.png"
   },
   {
     "symbol": "MVISc",
@@ -467,6 +467,13 @@
     "address": "0xb2000000000000000000000cd31253817b36f88a",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/76e8c033699c82738072f1729a370ac22680edf24524a7d25fa91e18eacebca9.png"
+  },
+  {
+    "symbol": "REALc",
+    "name": "The RealReal, Inc.",
+    "address": "0xb200000000000000000000211a2ed33fad95b0b3",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/cd6c756c9131ae7eb821b6d0c9c6479e7367f991a83d08f63504fe427d4c8495.png"
   },
   {
     "symbol": "RIVNc",
@@ -628,13 +635,6 @@
     "address": "0xb2000000000000000000003a67b9f116f25513d6",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/5235553a6256d681d62d7141c70b959608b8c7a294f1265ae1ab75f0823ab4a0.png"
-  },
-  {
-    "symbol": "TKRc",
-    "name": "The Timken Company",
-    "address": "0xb20000000000000000000049b9fc3b3c8c9402ff",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/da4c3b2e87e0109357af30a85038e34e8547e252979443ea013543627074b1e5.png"
   },
   {
     "symbol": "TRONc",
