@@ -28,13 +28,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/692fc9bebd2c0b43e0f910aa8778a40ca9dd641fda78807f2ad0f7b68edc3eb7.png"
   },
   {
-    "symbol": "ALABc",
-    "name": "Astera Labs, Inc.",
-    "address": "0xb200000000000000000000476c5a355abe1a2794",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/3aa9f6c894d4c5d1747e6b979a6835d1e5e01ea3a40131dd6d3d07229a4620bd.png"
-  },
-  {
     "symbol": "ALNTc",
     "name": "Allient Inc.",
     "address": "0xb20000000000000000000011eea811eaedb29156",
@@ -259,11 +252,11 @@
     "icon": "https://metadata.coinbase.com/equity_icons/0e80e31df40f7c42b49a3c7f6d23c6351625d73f235aeb69006ddee9221702b0.png"
   },
   {
-    "symbol": "GRPNc",
-    "name": "Groupon, Inc.",
-    "address": "0xb2000000000000000000004637e5a787885c720d",
+    "symbol": "GTc",
+    "name": "The Goodyear Tire & Rubber Company",
+    "address": "0xb200000000000000000000264d3a9dea68aa6631",
     "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/ca2b40fc9f26b2d8f53ce4d16511081f10b3988b04d875f9516aefcc977c0988.png"
+    "icon": "https://metadata.coinbase.com/equity_icons/d22aec89040e958e7380067066d556ab4fc627018666a54d1c60687d2bb11c06.png"
   },
   {
     "symbol": "HIMSc",
@@ -347,7 +340,7 @@
     "name": "MicroVision, Inc.",
     "address": "0xb2000000000000000000001bcf8e5022d7f61919",
     "decimals": 8,
-    "icon": null
+    "icon": "https://metadata.coinbase.com/equity_icons/66bf0677e7614a014a39453ea2368b09b823f15b00d8bdfd414b36e0ee62b710.png"
   },
   {
     "symbol": "NEMc",
@@ -616,13 +609,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/e6196bb22f98ffd083cf2611d68c0d5e6ff5c712f257b4195cdcbe461dbdf730.png"
   },
   {
-    "symbol": "SYMc",
-    "name": "Symbotic Inc.",
-    "address": "0xb20000000000000000000047984ecae84db5fcf9",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/997fde3a02281fe7531330f8989a0461e22817e21d4f46b8dd9f6bb8ccb33cbb.png"
-  },
-  {
     "symbol": "TEAMc",
     "name": "Atlassian Corporation",
     "address": "0xb2000000000000000000004217b9b4f6f6acb7b8",
@@ -679,6 +665,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/d574c28077218dd14f8267ab2190896857c65651aece91bcfc0529658f88cec8.png"
   },
   {
+    "symbol": "WUc",
+    "name": "The Western Union Company",
+    "address": "0xb20000000000000000000033be01089cf02a2025",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/180c83fbd794ede040a0a2b328fdb0dcf3868cca21136423a0c82935749c790e.png"
+  },
+  {
     "symbol": "WULFc",
     "name": "TeraWulf Inc.",
     "address": "0xb200000000000000000000432a1d2bd864acec82",
@@ -691,6 +684,13 @@
     "address": "0xb200000000000000000000115bf2283265fb04db",
     "decimals": 8,
     "icon": null
+  },
+  {
+    "symbol": "YOUc",
+    "name": "CLEAR Secure, Inc.",
+    "address": "0xb2000000000000000000003cdb2c0f94e4ebf605",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/c7841632301b7dcbabd81898c2469cb2e0b8b9e196d05f8911107b49d92ed136.png"
   },
   {
     "symbol": "ZMc",
