@@ -35,6 +35,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/06d3c2cac2c89e3a8bc4b2fe40ff259f104b55244321dea400e44b22f215896b.png"
   },
   {
+    "symbol": "ANETc",
+    "name": "Arista Networks, Inc.",
+    "address": "0xb200000000000000000000e71d4e45d1421251cb",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/93fc34c4af9b196b52af11e221e6b3abfe3f404b9c6d463f9f3b2ddb8248bbeb.png"
+  },
+  {
     "symbol": "APPc",
     "name": "AppLovin Corporation",
     "address": "0xb20000000000000000000006f910a0e7bbd3c168",
@@ -61,6 +68,13 @@
     "address": "0xb200000000000000000000fc737aea6196ab5a4c",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/05ae387b9635774d2724b23f7fac0bd3100fe0023f4c35587b5a28db7b8768c4.png"
+  },
+  {
+    "symbol": "BACc",
+    "name": "Bank of America Corporation",
+    "address": "0xb200000000000000000000e3e784cdf88df2959d",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/fc804178a658b0272772291f6a4175f8b48d20491ca1ca2a916d253236320a5f.png"
   },
   {
     "symbol": "BEc",
@@ -126,11 +140,25 @@
     "icon": null
   },
   {
+    "symbol": "CMGc",
+    "name": "Chipotle Mexican Grill, Inc.",
+    "address": "0xb200000000000000000000e4a60215e10d6d8c2b",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/300ce94ee02e14c80967bd951ff322c299ae0c08e493fe9f3b24336d5c36cb7a.png"
+  },
+  {
     "symbol": "CRCLc",
     "name": "Circle Internet Group Inc.",
     "address": "0xb20000000000000000000019f6e7c675b73c2e4d",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/f217835f2637739f460cc9335a59ec96011c1b9510a40cee3243aeef50eb7a45.png"
+  },
+  {
+    "symbol": "CRMc",
+    "name": "Salesforce, Inc.",
+    "address": "0xb2000000000000000000006432a3a7991e718dbb",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/abb12b33ee5b2b4aa9be8ef640029e6da18ce05092c0a52f251aad0024d34c91.png"
   },
   {
     "symbol": "CRWVc",
@@ -166,6 +194,13 @@
     "address": "0xb2000000000000000000002d0ba3164cc74f58b7",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/0e80e31df40f7c42b49a3c7f6d23c6351625d73f235aeb69006ddee9221702b0.png"
+  },
+  {
+    "symbol": "GTLBc",
+    "name": "GitLab Inc.",
+    "address": "0xb200000000000000000000df14b76c292a32982d",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/37461e3b635e940be37345519b30eac496adca6f6f18c165b5b0f4c69c13c2b2.png"
   },
   {
     "symbol": "HIMSc",
@@ -210,6 +245,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/cc2d84b704e34b83b5fc1f3b0e89c67e5ccc9142e666a50a5cbde261cf09e2aa.png"
   },
   {
+    "symbol": "JNJc",
+    "name": "Johnson & Johnson",
+    "address": "0xb20000000000000000000090658e3f9b29e2f5c2",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/16968bda5d39b62f142aa1e59e2d3a47ee0ded6b78be03fa489480c9efc3e4c5.png"
+  },
+  {
     "symbol": "LIc",
     "name": "Li Auto Inc.",
     "address": "0xb200000000000000000000d61efd9f54a23ef9eb",
@@ -231,11 +273,39 @@
     "icon": "https://metadata.coinbase.com/equity_icons/0b4d7572da33930f741d650ba269e4d324ad584b760fa3e2319b4112798168a8.png"
   },
   {
+    "symbol": "LRCXc",
+    "name": "Lam Research Corporation",
+    "address": "0xb20000000000000000000034975347ff1848aab9",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/4a97b415ba6301739ab9a75aab688590cb0dca974d847456faa326b277d30675.png"
+  },
+  {
+    "symbol": "LULUc",
+    "name": "lululemon athletica inc.",
+    "address": "0xb200000000000000000000989dc22d3656717734",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/89eb90c9ddf6b9d2cb48b2c74c0304785b67da2936086aa45d49108d834a2d75.png"
+  },
+  {
     "symbol": "METAc",
     "name": "Meta Platforms Inc.",
     "address": "0xb2000000000000000000008bc8786b856e61707c",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/1cedbfb3caee9498470945ff5041715b8c90921d904b3567a43bc4df82069e66.png"
+  },
+  {
+    "symbol": "MPc",
+    "name": "MP Materials Corp.",
+    "address": "0xb2000000000000000000003958003d801724f9d3",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/a9692ca246683314dfc7a2b4e05c8b5c0a630d9075aaf3e8fa541873e718847a.png"
+  },
+  {
+    "symbol": "MRKc",
+    "name": "Merck & Co., Inc.",
+    "address": "0xb200000000000000000000241fe94fe97fcbf034",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/65c8a28b36993cad3be0db3fdcbf28d3ba02518d06420e2844795af154d8346f.png"
   },
   {
     "symbol": "MRNAc",
@@ -362,6 +432,13 @@
     "address": "0xb200000000000000000000450ad3abe5d4846c6e",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/b0023876e88d8c35430d618a5008e423023187143d62f22977c95a29ae59f276.png"
+  },
+  {
+    "symbol": "QCOMc",
+    "name": "Qualcomm Incorporated",
+    "address": "0xb2000000000000000000005672d78eff30d24665",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/0018b31e57120d7044a97ae6e4d5a62eb76db4f9bef4dc658706e7198c4d47e5.png"
   },
   {
     "symbol": "QUBTc",
@@ -495,6 +572,20 @@
     "address": "0xb20000000000000000000063376b142c0764b489",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/4f7e35bb8f69121d81f921b472896929dde9dd00fce4976fea947b2231d8924c.png"
+  },
+  {
+    "symbol": "VRTc",
+    "name": "Vertiv Holdings Co",
+    "address": "0xb200000000000000000000b2e8dba585b1ffb158",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/2371e84cb7ba532f468a5ec202059ba626054d7b630444bfb8433bbaf62ef3ec.png"
+  },
+  {
+    "symbol": "VSTc",
+    "name": "Vistra Corp.",
+    "address": "0xb20000000000000000000079dc24fe2fbd09110f",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/5149ad156561c56febae1107978defb8782325f42a69ed77bdec6ba2330a5a4f.png"
   },
   {
     "symbol": "WDCc",
