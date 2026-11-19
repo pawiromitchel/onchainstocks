@@ -252,6 +252,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/16968bda5d39b62f142aa1e59e2d3a47ee0ded6b78be03fa489480c9efc3e4c5.png"
   },
   {
+    "symbol": "KOc",
+    "name": "The Coca-Cola Company",
+    "address": "0xb200000000000000000000ffef181db6dc5ed6a3",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/f8035ffe3d3d68753996fb38c99b69649604250dfafc8e51f0b206c34ae71826.png"
+  },
+  {
     "symbol": "LIc",
     "name": "Li Auto Inc.",
     "address": "0xb200000000000000000000d61efd9f54a23ef9eb",
@@ -285,6 +292,13 @@
     "address": "0xb200000000000000000000989dc22d3656717734",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/89eb90c9ddf6b9d2cb48b2c74c0304785b67da2936086aa45d49108d834a2d75.png"
+  },
+  {
+    "symbol": "MCDc",
+    "name": "McDonald's Corporation",
+    "address": "0xb200000000000000000000d2f4cf2f7debb244bb",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/8b9c9a9bb83fc0c94cbbb3a0233887c55a816333f21dfed4688559666bca905c.png"
   },
   {
     "symbol": "METAc",
