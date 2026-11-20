@@ -14,6 +14,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/873819f4b14efe44b94abecbc8e8864d2998163abd0ca55b449ee6eb07d0d94c.png"
   },
   {
+    "symbol": "ABNBc",
+    "name": "Airbnb, Inc.",
+    "address": "0xb200000000000000000000045beafafbe0dc7664",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/de9dc52e1592e3626085a7eea3c0463c70e3d746f4fca9da58a7e46175b30882.png"
+  },
+  {
     "symbol": "AMCc",
     "name": "AMC Entertainment Holdings, Inc.",
     "address": "0xb200000000000000000000cd7e6b8042cb7c2bb5",
@@ -40,6 +47,13 @@
     "address": "0xb200000000000000000000e71d4e45d1421251cb",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/93fc34c4af9b196b52af11e221e6b3abfe3f404b9c6d463f9f3b2ddb8248bbeb.png"
+  },
+  {
+    "symbol": "ANTc",
+    "name": "Anthropic, PBC",
+    "address": "0xb20000000000000000000016e38fd364d271ba28",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/8ab0b05f5367f9125e4c94b1c792d6c31c784dddeb42a3fcbf93b242e8f8645d.png"
   },
   {
     "symbol": "APPc",
@@ -105,6 +119,13 @@
     "icon": null
   },
   {
+    "symbol": "BJc",
+    "name": "BJ's Wholesale Club Holdings, Inc.",
+    "address": "0xb200000000000000000000082f7fea8f2ee8f438",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/205dbc50e8001e04f00b12e1c94c2a0a82af2a9d56beeb1fc9b9c9c35038dc1b.png"
+  },
+  {
     "symbol": "BMNRc",
     "name": "BitMine Immersion Technologies, Inc.",
     "address": "0xb200000000000000000000ea2df44a307cab279c",
@@ -147,6 +168,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/300ce94ee02e14c80967bd951ff322c299ae0c08e493fe9f3b24336d5c36cb7a.png"
   },
   {
+    "symbol": "COHUc",
+    "name": "Cohu, Inc.",
+    "address": "0xb20000000000000000000007b4fcc48e2d70dcc6",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/8e068337339bf70ec2a444b6eba7b7f666bfdad90cd4a0411da84a3420ce74c7.png"
+  },
+  {
     "symbol": "CRCLc",
     "name": "Circle Internet Group Inc.",
     "address": "0xb20000000000000000000019f6e7c675b73c2e4d",
@@ -168,6 +196,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/43c7fe215cc44bb5e9fd69cd7c3df620081f95199ce0546ed9106ee5f6576fd7.png"
   },
   {
+    "symbol": "DISc",
+    "name": "The Walt Disney Company",
+    "address": "0xb2000000000000000000000bd75bf439a38bf7df",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/c43d1b3eb29d5f3285ea241e65c1efd2dab39082edf445226c8cd087451d5898.png"
+  },
+  {
     "symbol": "DJTc",
     "name": "Trump Media & Technology Group Corp.",
     "address": "0xb200000000000000000000428e3a3eebbb20692b",
@@ -175,11 +210,25 @@
     "icon": "https://metadata.coinbase.com/equity_icons/eb816a29bbe55360569198a1a25f02299c0272504161766c10a25b3d9c58774a.png"
   },
   {
+    "symbol": "DOCNc",
+    "name": "DigitalOcean Holdings, Inc.",
+    "address": "0xb20000000000000000000005befa57b9b871e737",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/e38e3fa0f3b6cd8fc412cbbaba495837e808ba02fef473c3bba04d4c79f201b8.png"
+  },
+  {
     "symbol": "DUOLc",
     "name": "Duolingo, Inc.",
     "address": "0xb200000000000000000000a613d12deafbbb1db7",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/ff66ef3199719715b106d78ecfe5bf048afc9079ab93e51e01cad12021c26221.png"
+  },
+  {
+    "symbol": "FUNc",
+    "name": "Six Flags Entertainment Corporation",
+    "address": "0xb2000000000000000000000199ae48796c61909e",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/c4d4e396530ee18adc35da49f735bb3867ff3f90e0adfd265ef4fbef5b584c75.png"
   },
   {
     "symbol": "GMEc",
@@ -292,6 +341,13 @@
     "address": "0xb200000000000000000000989dc22d3656717734",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/89eb90c9ddf6b9d2cb48b2c74c0304785b67da2936086aa45d49108d834a2d75.png"
+  },
+  {
+    "symbol": "LYFTc",
+    "name": "Lyft, Inc.",
+    "address": "0xb20000000000000000000005717baa337022c782",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/4a98158f65a436fb2aa84543576ef1e3fc59c8d546df145d379697b1f0850d40.png"
   },
   {
     "symbol": "MCDc",
@@ -490,6 +546,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/5dd62fb150e6fc6ba2d15c89a567571bcf420911c54efdf53cf8158f39ededf1.png"
   },
   {
+    "symbol": "RKTc",
+    "name": "Rocket Companies, Inc.",
+    "address": "0xb200000000000000000000000d3176ee4af1102d",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/4dde0edccaaf5a6e62a814beeef58402cc8a1aba58ca6aab50f65b2ae28d1127.png"
+  },
+  {
     "symbol": "SANc",
     "name": "Banco Santander, S.A.",
     "address": "0xb20000000000000000000017bb66e9301e913a99",
@@ -509,6 +572,13 @@
     "address": "0xb2000000000000000000003088798f6d0722aaac",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/2d1bb197ce0e821bd2f1b4cd7055c9db780c59a6231b9ac6ca938585ee55e82f.png"
+  },
+  {
+    "symbol": "SEZLc",
+    "name": "Sezzle Inc.",
+    "address": "0xb2000000000000000000000c1f8acd3c4496a762",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/672880962adbe80d1e51d19d93341a7c210805774a03893b67fc4d820e2a8e3b.png"
   },
   {
     "symbol": "SKHYc",
@@ -551,6 +621,13 @@
     "address": "0xb2000000000000000000007b9fcbd005511acbd5",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/79fa65beabbe27c7b84a38b8f67a492793a0c203a5312c8feddc23e4b7c66b79.png"
+  },
+  {
+    "symbol": "TRONc",
+    "name": "Tron Inc.",
+    "address": "0xb2000000000000000000000a22ac22d031b657da",
+    "decimals": 8,
+    "icon": null
   },
   {
     "symbol": "TSLAc",
