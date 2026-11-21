@@ -364,6 +364,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/1cedbfb3caee9498470945ff5041715b8c90921d904b3567a43bc4df82069e66.png"
   },
   {
+    "symbol": "MIRc",
+    "name": "Mirion Technologies, Inc.",
+    "address": "0xb20000000000000000000009614107be6f562ba8",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/3d85005bba9e947eefbb2dc4f853cfbb39200de3e2336088ed51c9c6ada203e9.png"
+  },
+  {
     "symbol": "MPc",
     "name": "MP Materials Corp.",
     "address": "0xb2000000000000000000003958003d801724f9d3",
@@ -572,13 +579,6 @@
     "address": "0xb2000000000000000000003088798f6d0722aaac",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/2d1bb197ce0e821bd2f1b4cd7055c9db780c59a6231b9ac6ca938585ee55e82f.png"
-  },
-  {
-    "symbol": "SEZLc",
-    "name": "Sezzle Inc.",
-    "address": "0xb2000000000000000000000c1f8acd3c4496a762",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/672880962adbe80d1e51d19d93341a7c210805774a03893b67fc4d820e2a8e3b.png"
   },
   {
     "symbol": "SKHYc",
