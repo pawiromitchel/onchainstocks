@@ -21,6 +21,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/de9dc52e1592e3626085a7eea3c0463c70e3d746f4fca9da58a7e46175b30882.png"
   },
   {
+    "symbol": "ADBEc",
+    "name": "Adobe Inc.",
+    "address": "0xb20000000000000000000034533ed3961f222cd4",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/c0935c5a81483dfd55f9b6892d0167554d5add886431cbc61e7eb0b8ff8ad49e.png"
+  },
+  {
     "symbol": "AMCc",
     "name": "AMC Entertainment Holdings, Inc.",
     "address": "0xb200000000000000000000cd7e6b8042cb7c2bb5",
@@ -119,13 +126,6 @@
     "icon": null
   },
   {
-    "symbol": "BJc",
-    "name": "BJ's Wholesale Club Holdings, Inc.",
-    "address": "0xb200000000000000000000082f7fea8f2ee8f438",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/205dbc50e8001e04f00b12e1c94c2a0a82af2a9d56beeb1fc9b9c9c35038dc1b.png"
-  },
-  {
     "symbol": "BMNRc",
     "name": "BitMine Immersion Technologies, Inc.",
     "address": "0xb200000000000000000000ea2df44a307cab279c",
@@ -194,13 +194,6 @@
     "address": "0xb200000000000000000000f111184a74720787e6",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/43c7fe215cc44bb5e9fd69cd7c3df620081f95199ce0546ed9106ee5f6576fd7.png"
-  },
-  {
-    "symbol": "DISc",
-    "name": "The Walt Disney Company",
-    "address": "0xb2000000000000000000000bd75bf439a38bf7df",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/c43d1b3eb29d5f3285ea241e65c1efd2dab39082edf445226c8cd087451d5898.png"
   },
   {
     "symbol": "DJTc",
@@ -364,13 +357,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/1cedbfb3caee9498470945ff5041715b8c90921d904b3567a43bc4df82069e66.png"
   },
   {
-    "symbol": "MIRc",
-    "name": "Mirion Technologies, Inc.",
-    "address": "0xb20000000000000000000009614107be6f562ba8",
-    "decimals": 8,
-    "icon": "https://metadata.coinbase.com/equity_icons/3d85005bba9e947eefbb2dc4f853cfbb39200de3e2336088ed51c9c6ada203e9.png"
-  },
-  {
     "symbol": "MPc",
     "name": "MP Materials Corp.",
     "address": "0xb2000000000000000000003958003d801724f9d3",
@@ -439,6 +425,13 @@
     "address": "0xb2000000000000000000005ac674f707e357409c",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/a439a52a14be6becd7b40d129b295d675b9cde07a4014813e367ebd223ce4c1a.png"
+  },
+  {
+    "symbol": "NOWc",
+    "name": "ServiceNow, Inc.",
+    "address": "0xb20000000000000000000082cd2c7801305808df",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/441e542d8b289310e00576923841871bf3df702907b6a5be7ffa19b58e63caf7.png"
   },
   {
     "symbol": "NVAXc",
@@ -595,6 +588,13 @@
     "icon": "https://metadata.coinbase.com/equity_icons/495de6bc9902690826d533b9506494890f59d611d10f04231c00936f659bb0cb.png"
   },
   {
+    "symbol": "SNOWc",
+    "name": "Snowflake Inc.",
+    "address": "0xb2000000000000000000004acdc9a922fcfbcc7f",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/1914120c61e2fdeb8f1202559f0ea0fbdd16011d60ff9183c9bbad19a72e0ab4.png"
+  },
+  {
     "symbol": "SOFIc",
     "name": "SoFi Technologies, Inc.",
     "address": "0xb2000000000000000000003ef37a7c863dc1482a",
@@ -623,13 +623,6 @@
     "icon": "https://metadata.coinbase.com/equity_icons/79fa65beabbe27c7b84a38b8f67a492793a0c203a5312c8feddc23e4b7c66b79.png"
   },
   {
-    "symbol": "TRONc",
-    "name": "Tron Inc.",
-    "address": "0xb2000000000000000000000a22ac22d031b657da",
-    "decimals": 8,
-    "icon": null
-  },
-  {
     "symbol": "TSLAc",
     "name": "Tesla Inc.",
     "address": "0xb2000000000000000000001e800a7f5189430cd0",
@@ -642,6 +635,13 @@
     "address": "0xb200000000000000000000f720c26062bc3067da",
     "decimals": 8,
     "icon": "https://metadata.coinbase.com/equity_icons/ab6469891e1953bb08c7576e4f7536d79bcf36d45b3893c669ada2d928e940bb.png"
+  },
+  {
+    "symbol": "UBERc",
+    "name": "Uber Technologies, Inc.",
+    "address": "0xb200000000000000000000cae20cb1446462e24c",
+    "decimals": 8,
+    "icon": "https://metadata.coinbase.com/equity_icons/0a1b82e9a6af837440fda434872012887f14317248bd1ba6a337ee2c8bb27d08.png"
   },
   {
     "symbol": "ULc",
